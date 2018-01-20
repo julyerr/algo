@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 使用递归，注意保存结果时，应该新建一个ArrayList：result.add(new ArrayList< Integer>(cur))。
+ * 使用递归，注意保存结果时，应该新建一个ArrayList：result.offer(new ArrayList< Integer>(cur))。
  * 否则result会指向一直变化的cur。
  */
 public class CombinationSumI {
@@ -41,7 +41,7 @@ public class CombinationSumI {
 
     public void dfs(int start, int target, List<List<Integer>> result, List<Integer> cur, int[] candidates) {
         if (target == 0) {
-            //add new array to the result
+            //offer new array to the result
             result.add(new ArrayList<Integer>(cur));
             return;
         }

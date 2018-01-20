@@ -19,7 +19,7 @@ import java.util.*;
  */
 
 /**
- * similar to three sums , just add a more loop
+ * similar to three sums , just offer a more loop
  *
  */
 public class FourSum {
@@ -30,7 +30,7 @@ public class FourSum {
         Arrays.sort(nums);
         Set<List<Integer>> set = new HashSet<List<Integer>>();
         for (int a = 0; a < nums.length - 3; a++) {
-            //just add one more loop
+            //just offer one more loop
             int target3Sum = target - nums[a];
             for (int b = 0; b < nums.length - 2; b++) {
                 int c = b+1,d = nums.length-1;

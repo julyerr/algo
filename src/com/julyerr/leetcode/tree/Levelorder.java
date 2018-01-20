@@ -62,8 +62,8 @@ public class Levelorder {
 //        Deque<TreeNode> deque = new LinkedList<TreeNode>();
 //        List<Integer> level = new ArrayList<>();
 //        final TreeNode END = new TreeNode(0);
-//        deque.add(node);
-//        deque.add(END);
+//        deque.offer(node);
+//        deque.offer(END);
 //        int count = 0;
 //        while (!deque.isEmpty()) {
 //            TreeNode p = deque.pop();
@@ -71,20 +71,20 @@ public class Levelorder {
 //                if(count % 2 ==1){
 //                    Collections.reverse(level);
 //                }
-//                rt.add(new ArrayList<Integer>(level));
+//                rt.offer(new ArrayList<Integer>(level));
 //                //have added all the elements to the deque,clear it.
 //                level.clear();
 //                if (!deque.isEmpty()) {
-//                    deque.add(END);
+//                    deque.offer(END);
 //                }
 //                count++;
 //            } else {
-//                level.add(p.data);
+//                level.offer(p.data);
 //                if (p.lChild != null) {
-//                    deque.add(p.lChild);
+//                    deque.offer(p.lChild);
 //                }
 //                if (p.rChild != null) {
-//                    deque.add(p.rChild);
+//                    deque.offer(p.rChild);
 //                }
 //            }
 //        }
