@@ -28,6 +28,7 @@ import java.util.Scanner;
 /**
  * 如果正面考虑非常复杂的话，使用递归或者是动态规划
  *  动态规划，每一的结果依赖于上次的结果，随着每一步的进行均能取到对应的最优解
+ *
  */
 public class Chorus {
     public long chorus() {
