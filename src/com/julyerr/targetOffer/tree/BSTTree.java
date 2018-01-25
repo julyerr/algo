@@ -2,16 +2,11 @@ package com.julyerr.targetOffer.tree;
 
 import java.util.*;
 
-public class BSTTree<T extends Comparable> {
-    private TreeNode<T> root;
+public class BSTTree {
 
-    public void insertRecurse(T data) {
-        root = insertRecurse(root, data);
-    }
-
-    private TreeNode<T> insertRecurse(TreeNode<T> node, T data) {
+    public static TreeNode insertRecurse(TreeNode node, Integer data) {
         if (node == null) {
-            return new TreeNode<>(data);
+            return new TreeNode(data);
         }
         if (node.data.compareTo(data) > 0) {
             node.left = insertRecurse(node.left, data);
@@ -21,11 +16,7 @@ public class BSTTree<T extends Comparable> {
         return node;
     }
 
-    public void deleteRecurse(T data) {
-        root = deleteRecurse(root, data);
-    }
-
-    private TreeNode<T> deleteRecurse(TreeNode<T> node, T data) {
+    public static TreeNode deleteRecurse(TreeNode node, Integer data) {
         if (node == null || node.data.compareTo(data) == 0) {
             return null;
         }
@@ -37,16 +28,16 @@ public class BSTTree<T extends Comparable> {
         return node;
     }
 
-    public List<T> preOrderRecurse() {
-        List<T> list = new ArrayList<>();
-        if (root == null) {
+    public static List preOrderRecurse(TreeNode node) {
+        List list = new ArrayList<>();
+        if (node == null) {
             return list;
         }
-        preOrderRecurse(root, list);
+        preOrderRecurse(node, list);
         return list;
     }
 
-    private void preOrderRecurse(TreeNode<T> node, List<T> list) {
+    private static void preOrderRecurse(TreeNode node, List list) {
         if (node == null) {
             return;
         }
@@ -55,16 +46,16 @@ public class BSTTree<T extends Comparable> {
         preOrderRecurse(node.right, list);
     }
 
-    public List<T> postOrderRecurse() {
-        List<T> list = new ArrayList<>();
-        if (root == null) {
+    public static List postOrderRecurse(TreeNode node) {
+        List list = new ArrayList<>();
+        if (node == null) {
             return list;
         }
-        postOrderRecurse(root, list);
+        postOrderRecurse(node, list);
         return list;
     }
 
-    private void postOrderRecurse(TreeNode<T> node, List<T> list) {
+    private static void postOrderRecurse(TreeNode node, List list) {
         if (node == null) {
             return;
         }
@@ -73,16 +64,16 @@ public class BSTTree<T extends Comparable> {
         list.add(node.data);
     }
 
-    public List<T> inOrderRecurse() {
-        List<T> list = new ArrayList<>();
-        if (root == null) {
+    public static List inOrderRecurse(TreeNode node) {
+        List list = new ArrayList<>();
+        if (node == null) {
             return list;
         }
-        inOrderRecurse(root, list);
+        inOrderRecurse(node, list);
         return list;
     }
 
-    private void inOrderRecurse(TreeNode<T> node, List<T> list) {
+    private static void inOrderRecurse(TreeNode node, List list) {
         if (node == null) {
             return;
         }
@@ -91,20 +82,20 @@ public class BSTTree<T extends Comparable> {
         inOrderRecurse(node.right, list);
     }
 
-    public List<T> levelOrder() {
-        List<T> list = new ArrayList<>();
-        if (root == null) {
+    public static List levelOrder(TreeNode node) {
+        List list = new ArrayList<>();
+        if (node == null) {
             return list;
         }
-        levelOrder(root, list);
+        levelOrder(node, list);
         return list;
     }
 
-    private void levelOrder(TreeNode<T> node, List<T> list) {
-        Queue<TreeNode<T>> queue = new LinkedList<>();
+    private static void levelOrder(TreeNode node, List list) {
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(node);
         while (!queue.isEmpty()) {
-            TreeNode<T> n = queue.poll();
+            TreeNode n = queue.poll();
             list.add(n.data);
             if (n.left != null) {
                 queue.add(n.left);
@@ -115,23 +106,23 @@ public class BSTTree<T extends Comparable> {
         }
     }
 
-    public void print(List<T> list) {
-        Iterator<T> iterator = list.iterator();
+    public static void print(List<Integer> list) {
+        Iterator iterator = list.iterator();
         while (iterator.hasNext()) {
-            T data = iterator.next();
+            Integer data = (Integer) iterator.next();
             System.out.print(data + " ");
         }
         System.out.println();
     }
 
     //    non recurse
-    public List<T> preOrder() {
-        List<T> list = new ArrayList<>();
-        if (root == null) {
+    public static List preOrder(TreeNode node) {
+        List list = new ArrayList<>();
+        if (node == null) {
             return list;
         }
-        TreeNode<T> p = root;
-        Stack<TreeNode<T>> stack = new Stack<>();
+        TreeNode p = node;
+        Stack<TreeNode> stack = new Stack<>();
         while (p != null || !stack.isEmpty()) {
             while (p != null) {
                 list.add(p.data);
@@ -146,13 +137,13 @@ public class BSTTree<T extends Comparable> {
         return list;
     }
 
-    public List<T> inOrder() {
-        List<T> list = new ArrayList<>();
-        if (root == null) {
+    public static List inOrder(TreeNode node) {
+        List list = new ArrayList<>();
+        if (node == null) {
             return list;
         }
-        TreeNode<T> p = root;
-        Stack<TreeNode<T>> stack = new Stack<>();
+        TreeNode p = node;
+        Stack<TreeNode> stack = new Stack<>();
         while (p != null || !stack.isEmpty()) {
             while (p != null) {
                 stack.add(p);
@@ -168,14 +159,14 @@ public class BSTTree<T extends Comparable> {
     }
 
     //    实现方式比较巧妙，设置visited指针，针对没有孩子的情况和已经访问过的情况才真正pop元素
-    public List<T> postOrder() {
-        List<T> list = new ArrayList<>();
-        if (root == null) {
+    public static List postOrder(TreeNode node) {
+        List list = new ArrayList<>();
+        if (node == null) {
             return list;
         }
-        TreeNode<T> p = root;
-        TreeNode<T> visited = null;
-        Stack<TreeNode<T>> stack = new Stack<>();
+        TreeNode p = node;
+        TreeNode visited = null;
+        Stack<TreeNode> stack = new Stack<>();
         while (p != null || !stack.isEmpty()) {
             while (p != null) {
                 stack.add(p);
@@ -199,28 +190,30 @@ public class BSTTree<T extends Comparable> {
 
     public static void main(String[] args) {
         int[] nums = new int[]{3, 1, 2, 4};
-        BSTTree<Integer> bstTree = new BSTTree<>();
+        TreeNode bstTree = null;
         for (int i = 0; i < nums.length; i++) {
-            bstTree.insertRecurse(nums[i]);
+            bstTree = insertRecurse(bstTree, nums[i]);
         }
 
 //        preorder
-//        List<Integer> list = bstTree.preOrderRecurse();
-        List<Integer> list = bstTree.preOrder();
-        bstTree.print(list);
+//        List<Integer> list = preOrderRecurse(bstTree);
+        List<Integer> list = preOrder(bstTree);
+        print(list);
 
 //        inorder
-//        list = bstTree.inOrderRecurse();
-        list = bstTree.inOrder();
-        bstTree.print(list);
+//        list =inOrderRecurse(bstTree);
+        list = inOrder(bstTree);
+        print(list);
 
 //        postOrder
-//        list = bstTree.postOrderRecurse();
-        list = bstTree.postOrder();
-        bstTree.print(list);
+//        list = postOrderRecurse(bstTree);
+        list = postOrder(bstTree);
+        print(list);
 
 //        levelOrder
-        list = bstTree.levelOrder();
-        bstTree.print(list);
+        list = levelOrder(bstTree);
+        print(list);
     }
+
+
 }

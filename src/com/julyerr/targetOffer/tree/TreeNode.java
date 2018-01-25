@@ -1,10 +1,10 @@
 package com.julyerr.targetOffer.tree;
 
-public class TreeNode<T> {
-    T data;
-    TreeNode<T> left,right;
+public class TreeNode {
+    Integer data;
+    TreeNode left,right;
 
-    public TreeNode(T data) {
+    public TreeNode(Integer data) {
         this.data = data;
     }
 }

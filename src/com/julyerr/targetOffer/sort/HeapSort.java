@@ -1,12 +1,12 @@
 package com.julyerr.targetOffer.sort;
 
 /**
- * 稳定性排序，时间复杂度log(n)
+ * 时间复杂度log(n),空间复杂度O(1)，非稳定性排序
  * 注意点：
  * 首先需要构建大顶堆，这个过程需要迭代for()
  */
 public class HeapSort {
-    public void heapSort(int[] nums) {
+    public static void heapSort(int[] nums) {
 //        check validation
         if (nums == null || nums.length == 0 || nums.length == 1) {
             return;
@@ -23,7 +23,7 @@ public class HeapSort {
         }
     }
 
-    private void heapSort(int[] nums, int start, int end) {
+    private static void heapSort(int[] nums, int start, int end) {
         int left = start * 2 + 1;
         int max = left;
         if ((left + 1) <= end && nums[left + 1] > nums[left]) {

@@ -1,11 +1,11 @@
 package com.julyerr.targetOffer.sort;
 
 /**
- * 平均时间复杂度O(log(n))
+ * 平均时间复杂度O(log(n)),空间复杂度O(logn),非稳定排序
  * 比较适合对元素操作灵活的场所，不适合链表等
  */
 public class QuickSort {
-    public void quickSort(int[] arrays) {
+    public static void quickSort(int[] arrays) {
 //        check validation
         if (arrays == null || arrays.length == 0 || arrays.length == 1) {
             return;
@@ -14,7 +14,7 @@ public class QuickSort {
         quickSort(arrays, 0, arrays.length - 1);
     }
 
-    private void quickSort(int[] arrays, int begin, int end) {
+    private static void quickSort(int[] arrays, int begin, int end) {
         if (begin >= end) {
             return;
         }
