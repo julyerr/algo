@@ -9,12 +9,12 @@ package com.julyerr.targetOffer.list;
  * 解题思路还是比较巧妙的，先判断是否相等后循环跳过元素
  */
 public class DeleteDuplication {
-    public ListNode<Integer> deleteDuplication(ListNode<Integer> pHead) {
-        ListNode<Integer> head = new ListNode<>();
+    public ListNode deleteDuplication(ListNode pHead) {
+        ListNode head = new ListNode();
         head.next = pHead;
-        ListNode<Integer> p = head;
+        ListNode p = head;
         while (p.next != null) {
-            ListNode<Integer> q = p.next.next;
+            ListNode q = p.next.next;
             if (q == null || q.data != p.next.data) {
                 p = p.next;
             } else {

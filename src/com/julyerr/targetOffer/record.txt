@@ -1,3 +1,2 @@
-https://www.jianshu.com/p/010410a4d419
-string:
-    1 over
+解决方式比较巧妙：
+    https://www.jianshu.com/p/e39ff6a1b3ee

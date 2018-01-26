@@ -1,14 +1,14 @@
 package com.julyerr.targetOffer.list;
 
-public class ListNode<T> {
-    T data;
-    ListNode<T> next;
+public class ListNode {
+    Integer data;
+    ListNode next;
 
-    public ListNode(T data) {
+    public ListNode(Integer data) {
         this.data = data;
     }
 
-    public ListNode(T data, ListNode<T> next) {
+    public ListNode(Integer data, ListNode next) {
         this.data = data;
         this.next = next;
     }
