@@ -12,7 +12,7 @@ import java.util.Stack;
 
 
 /**
- * using stack to store the right node
+ * using stackQueue to store the right node
  */
 public class PreorderBST {
     public List<Integer> preOrderTraversal(TreeNode node) {

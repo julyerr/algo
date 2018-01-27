@@ -11,7 +11,7 @@ import java.util.Stack;
  */
 
 /**
- * using the first flag to show the node is first in the stack or not
+ * using the first flag to show the node is first in the stackQueue or not
  */
 public class PostBST {
     public List<Integer> postOrderTraversal(TreeNode node) {
