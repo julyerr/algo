@@ -28,8 +28,8 @@ public class BSTTree {
         return node;
     }
 
-    public static List preOrderRecurse(TreeNode node) {
-        List list = new ArrayList<>();
+    public static List<Integer> preOrderRecurse(TreeNode node) {
+        List<Integer> list = new ArrayList<>();
         if (node == null) {
             return list;
         }
@@ -37,7 +37,7 @@ public class BSTTree {
         return list;
     }
 
-    private static void preOrderRecurse(TreeNode node, List list) {
+    private static void preOrderRecurse(TreeNode node, List<Integer> list) {
         if (node == null) {
             return;
         }
@@ -46,8 +46,8 @@ public class BSTTree {
         preOrderRecurse(node.right, list);
     }
 
-    public static List postOrderRecurse(TreeNode node) {
-        List list = new ArrayList<>();
+    public static List<Integer> postOrderRecurse(TreeNode node) {
+        List<Integer> list = new ArrayList<>();
         if (node == null) {
             return list;
         }
@@ -55,7 +55,7 @@ public class BSTTree {
         return list;
     }
 
-    private static void postOrderRecurse(TreeNode node, List list) {
+    private static void postOrderRecurse(TreeNode node, List<Integer> list) {
         if (node == null) {
             return;
         }
@@ -64,8 +64,8 @@ public class BSTTree {
         list.add(node.data);
     }
 
-    public static List inOrderRecurse(TreeNode node) {
-        List list = new ArrayList<>();
+    public static List<Integer> inOrderRecurse(TreeNode node) {
+        List<Integer> list = new ArrayList<>();
         if (node == null) {
             return list;
         }
@@ -73,7 +73,7 @@ public class BSTTree {
         return list;
     }
 
-    private static void inOrderRecurse(TreeNode node, List list) {
+    private static void inOrderRecurse(TreeNode node, List<Integer> list) {
         if (node == null) {
             return;
         }
@@ -82,8 +82,8 @@ public class BSTTree {
         inOrderRecurse(node.right, list);
     }
 
-    public static List levelOrder(TreeNode node) {
-        List list = new ArrayList<>();
+    public static List<Integer> levelOrder(TreeNode node) {
+        List<Integer> list = new ArrayList<>();
         if (node == null) {
             return list;
         }
@@ -91,7 +91,7 @@ public class BSTTree {
         return list;
     }
 
-    private static void levelOrder(TreeNode node, List list) {
+    private static void levelOrder(TreeNode node, List<Integer> list) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(node);
         while (!queue.isEmpty()) {
@@ -116,8 +116,8 @@ public class BSTTree {
     }
 
     //    non recurse
-    public static List preOrder(TreeNode node) {
-        List list = new ArrayList<>();
+    public static List<Integer> preOrder(TreeNode node) {
+        List<Integer> list = new ArrayList<>();
         if (node == null) {
             return list;
         }
@@ -137,8 +137,8 @@ public class BSTTree {
         return list;
     }
 
-    public static List inOrder(TreeNode node) {
-        List list = new ArrayList<>();
+    public static List<Integer> inOrder(TreeNode node) {
+        List<Integer> list = new ArrayList<>();
         if (node == null) {
             return list;
         }
@@ -159,8 +159,8 @@ public class BSTTree {
     }
 
     //    实现方式比较巧妙，设置visited指针，针对没有孩子的情况和已经访问过的情况才真正pop元素
-    public static List postOrder(TreeNode node) {
-        List list = new ArrayList<>();
+    public static List<Integer> postOrder(TreeNode node) {
+        List<Integer> list = new ArrayList<>();
         if (node == null) {
             return list;
         }
