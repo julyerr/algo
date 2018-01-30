@@ -16,6 +16,18 @@ public class BSTTree {
         return node;
     }
 
+    public static TreeNode insertRecurse(TreeNode root, TreeNode node) {
+        if (root == null) {
+            return node;
+        }
+        if (root.data > node.data) {
+            root.left = insertRecurse(root.left, node);
+        } else if (root.data < node.data) {
+            root.right = insertRecurse(root.right, node);
+        }
+        return root;
+    }
+
     public static TreeNode deleteRecurse(TreeNode node, Integer data) {
         if (node == null || node.data.compareTo(data) == 0) {
             return null;
@@ -215,5 +227,32 @@ public class BSTTree {
         print(list);
     }
 
+
+    ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
+//        check validation
+        if (pRoot == null) {
+            return new ArrayList<>();
+        }
+        ArrayList<ArrayList<Integer>> rt = new ArrayList<>();
+        Queue<TreeNode> prev = new LinkedList<>();
+        prev.add(pRoot);
+        while (!prev.isEmpty()) {
+            Queue<TreeNode> cur = new LinkedList<>();
+            ArrayList<Integer> tmp = new ArrayList<>();
+            while (!prev.isEmpty()) {
+                TreeNode node = prev.poll();
+                tmp.add(node.data);
+                if (node.left != null) {
+                    cur.add(node.left);
+                }
+                if (node.right != null) {
+                    cur.add(node.right);
+                }
+            }
+            prev = cur;
+            rt.add(tmp);
+        }
+        return rt;
+    }
 
 }

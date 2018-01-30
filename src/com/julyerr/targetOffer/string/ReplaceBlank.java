@@ -13,7 +13,7 @@ package com.julyerr.targetOffer.string;
  * 原作者想法很巧妙，先记录添加%20的总长度，然后从后面扫描到前面，不需要开辟空间
  */
 public class ReplaceBlank {
-    public static void replaceBlankI(char[] chars, int length) {
+    public static void replaceBlank(char[] chars, int length) {
         if (length == 0) {
             return;
         }
@@ -40,26 +40,31 @@ public class ReplaceBlank {
         }
     }
 
-    public static void replaceBlank(char[] chars, int length) {
+    public String replaceSpace(StringBuffer str) {
 //        check validation
-        if (length == 0) {
-            return;
+        if (str == null || str.length() == 0) {
+            return "";
         }
+        int length = str.length();
         int newLength = length;
         for (int i = 0; i < length; i++) {
-            if (chars[i] == ' ') {
+            if (str.charAt(i) == ' ') {
                 newLength += 2;
             }
         }
+        int index = newLength - 1;
+        char[] chars = new char[newLength];
         for (int i = length - 1; i >= 0; i--) {
-            if (chars[i] != ' ') {
-                chars[newLength--] = chars[i];
+            char c = str.charAt(i);
+            if (c == ' ') {
+                chars[index--] = '0';
+                chars[index--] = '2';
+                chars[index--] = '%';
             } else {
-                chars[newLength--] = '0';
-                chars[newLength--] = '2';
-                chars[newLength] = '%';
+                chars[index--] = c;
             }
         }
+        return new String(chars);
     }
 
     public static void main(String[] args) {
@@ -69,8 +74,12 @@ public class ReplaceBlank {
         for (int i = 0; i < temp.length; i++) {
             chars[i] = temp[i];
         }
-        replaceBlank(chars, 11);
-        String str1 = new String(chars);
-        System.out.println(str1);
+//        replaceBlank(chars, 11);
+//        String str1 = new String(chars);
+//        System.out.println(str1);
+
+        ReplaceBlank replaceBlank = new ReplaceBlank();
+        String tmp = replaceBlank.replaceSpace(new StringBuffer(200).insert(0, " y o u "));
+        System.out.println(tmp);
     }
 }
