@@ -12,58 +12,37 @@ import java.util.Stack;
  * 对于poll情况，队列为空没有必要抛出异常，直接返回null即可，友好一点
  * 最好增加泛型实现
  */
-public class MyQueue<T> {
-    private Stack<T> stack0;
-    private Stack<T> stack1;
+public class MyQueue {
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
 
-    public MyQueue() {
-        stack0 = new Stack<T>();
-        stack1 = new Stack<T>();
+    public void push(int node) {
+        stack1.push(node);
     }
 
-    public boolean isEmpty(){
-        return stack0.isEmpty();
-    }
-
-    public void offer(T i){
-        stack0.add(i);
-    }
-
-//    public int poll() throws Exception {
-//        if(isEmpty()){
-//            throw new Exception("no elem");
-//        }
-//        while(!stack0.isEmpty()){
-//            stack1.add(stack0.pop());
-//        }
-//        int tmp = stack1.pop();
-//        while(!stack1.isEmpty()){
-//            stack0.add(stack1.pop());
-//        }
-//        return tmp;
-//    }
-
-    public T poll(){
-        if(!stack1.isEmpty()){
-            return stack1.pop();
-        }else if(!stack0.isEmpty()){
-            while(!stack0.isEmpty()){
-                stack1.add(stack0.pop());
+    public int pop() {
+        if (!stack2.isEmpty()) {
+            return stack2.pop();
+        } else if (!stack1.isEmpty()) {
+            while (!stack1.isEmpty()) {
+                int tmp = stack1.pop();
+                stack2.push(tmp);
             }
-            return stack1.pop();
+            return stack2.pop();
         }
-        return null;
+        return -1;
     }
 
     public static void main(String[] args){
-        MyQueue<Integer> myQueue = new MyQueue();
-        int[] nums = new int[]{1,2,3};
+        MyQueue main  = new MyQueue();
+        int[] nums = new int[]{1,2,3,4,5,6};
         for (int i = 0; i < nums.length; i++) {
-            myQueue.offer(nums[i]);
+            main.push(nums[i]);
         }
         for (int i = 0; i < nums.length; i++) {
-            System.out.println(myQueue.poll());
+            System.out.print(main.pop()+" ");
         }
-        System.out.println(myQueue.poll());
+        System.out.println();
+
     }
 }
