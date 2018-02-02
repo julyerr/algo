@@ -8,32 +8,35 @@ package com.julyerr.targetOffer.tree;
 
 
 /**
- * 设置一个p的游标作为新的node，start,end只是针对in数组而言
+ * 通过设置两个左右的边界进行条件判断
  */
 public class ConstructTree {
-    private static int p = 0;
 
+    /*
+     * 这种方式构建的有效的前提是二叉树必须是BST
+     * */
     public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
         if (pre == null || pre.length == 0) {
             return null;
         }
-        return reConstructBinaryTree(pre, in, 0, pre.length);
+        TreeNode root = reConstructBinaryTree(pre, 0, pre.length - 1, in, 0, in.length - 1);
+        return root;
     }
 
-    private static TreeNode reConstructBinaryTree(int[] pre, int[] in, int start, int end) {
-        if (start >= end || p == pre.length) {
+    private static TreeNode reConstructBinaryTree(int[] pre, int preStart, int preEnd, int[] in, int inStart, int inEnd) {
+        if (preStart > preEnd || inStart > inEnd) {
             return null;
         }
-        TreeNode node = new TreeNode(pre[p]);
-        int i;
-        for (i = start; i < end; i++) {
-            if (in[i] == pre[p]) {
+        int i = 0;
+        for (i = inStart; i <= inEnd; i++) {
+            if (pre[preStart] == in[i]) {
                 break;
             }
         }
-        p++;
-        node.left = reConstructBinaryTree(pre, in, start, i);
-        node.right = reConstructBinaryTree(pre, in, i + 1, end);
+        TreeNode node = new TreeNode(pre[preStart]);
+//        针对二叉树而不是BST，需要设置preStart+(i-inStart)而不是i
+        node.left = reConstructBinaryTree(pre, preStart + 1, preStart + (i - inStart), in, inStart, i - 1);
+        node.right = reConstructBinaryTree(pre, preStart + (i - inStart) + 1, preEnd, in, i + 1, inEnd);
         return node;
     }
 

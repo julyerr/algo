@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -52,6 +49,5 @@ public class Main {
         }
         return dp[n];
     }
-
 
 }
