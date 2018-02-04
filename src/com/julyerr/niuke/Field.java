@@ -21,5 +21,97 @@ package com.julyerr.niuke;
  * <p>
  * 2
  */
+
+import java.util.Scanner;
+
+/**
+ * 网易出的题目真是，搞不清楚题目的意思
+ * 题目意思：
+ * 简单理解就是将n*m的矩阵，通过横竖3刀进行划分16份，取出其中最小的一块
+ * 但是因为有多种划分的方法（n,m > 4的时候），找出所有划分的情况下的最大值
+ * <p>
+ * 参考讨论中别人的解题思路，实现的
+ * <p>
+ * 先计算出输入矩阵的sum矩阵
+ * 利用二分法针对不同的划分情况进行遍历
+ */
 public class Field {
+    public void field() {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            int[][] matrix = new int[n][m];
+            for (int i = 0; i < n; i++) {
+                String string = scanner.next();
+                for (int j = 0; j < m; j++) {
+                    matrix[i][j] = string.charAt(j) - '0';
+                }
+            }
+
+//            为计算的统一性，计算出sum矩阵
+            int[][] sum = new int[n + 1][m + 1];
+            for (int i = 1; i < n + 1; i++) {
+                for (int j = 1; j < m + 1; j++) {
+                    sum[i][j] = sum[i - 1][j] + sum[i][j - 1] - sum[i - 1][j - 1] + matrix[i - 1][j - 1];
+                }
+            }
+
+            int left = 0;
+            int right = sum[n][m];
+            int res = 0;
+            int mid = 0;
+            while (left <= right) {
+                mid = (left + right) / 2;
+//                如果满足情况，增大mid值
+                if (fit(mid, sum)) {
+                    left = mid + 1;
+                    res = mid;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            System.out.println(res);
+        }
+    }
+
+    private boolean fit(int least, int[][] sum) {
+        int rows = sum.length;
+        int cols = sum[0].length;
+//        将rows切成4段
+        for (int i = 1; i < rows - 3; i++) {
+            for (int j = i + 1; j < rows - 2; j++) {
+                for (int k = j + 1; k < rows - 1; k++) {
+                    int cnt = 0;
+                    int last = 0;
+//                    针对cols切分
+                    for (int l = 1; l < cols; l++) {
+                        int s1 = distance(sum, i, l, 0, last);
+                        int s2 = distance(sum, j, l, i, last);
+                        int s3 = distance(sum, k, l, j, last);
+                        int s4 = distance(sum, rows - 1, l, k, last);
+//                        如果切分的四大块都大于least，更新last
+                        if (s1 >= least && s2 >= least && s3 >= least && s4 >= least) {
+                            last = l;
+                            cnt++;
+                        }
+//                        如果划分为4块，返回true
+                        if (cnt >= 4) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private int distance(int[][] sum, int i, int j, int x, int y) {
+        return sum[x][y] - sum[i][y] - sum[x][j] + sum[i][j];
+    }
+
+    public static void main(String[] args) {
+        Field field = new Field();
+        field.field();
+    }
 }
