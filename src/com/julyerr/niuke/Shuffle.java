@@ -46,6 +46,7 @@ import java.util.Scanner;
 /*
  * 开始没有想到更好的方法，直接使用暴力求解的方式，通过但是时间和空间占用比较大；
  * 参考了大神的思路就是清晰
+ *      通过对特定的位置进行优先确定，输入的时候只需要对号入座即可
  *       https://www.nowcoder.net/questionTerminal/5a0a2c7e431e4fbbbb1ff32ac6e8dfa0
  *  以后面试的时候，在5分之内没有找到更好的方法就进行暴力求解；无论怎样都需要提前争取一下比较好的方法
  * */
@@ -105,7 +106,7 @@ public class Shuffle {
                             tmp = tmp << 1;
                         } else {
 //                            tmp = length - 1 - (length - 1 - i) * 2;
-                            tmp = i * 2 - length + 1;
+                            tmp = tmp * 2 - length + 1;
                         }
                     }
                     nums[tmp] = scanner.nextInt();
