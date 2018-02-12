@@ -36,7 +36,7 @@ public class BTPath {
     }
 
     private void bTPaths(TreeNode node, List<String> stringList, List<Integer> list) {
-        list.add(node.val);
+        list.add(node.data);
         if (node.left != null) {
             bTPaths(node.left, stringList, list);
         }

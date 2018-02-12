@@ -33,7 +33,7 @@ class Solution {
 
         int[] left = new int[1];
         int[] right = new int[1];
-        if (!balanced(node.left, left) || !balanced(node.right, right) || Math.abs(left[0] - right[0]) > 1) {
+        if (!balanced(node.lChild, left) || !balanced(node.rChild, right) || Math.abs(left[0] - right[0]) > 1) {
             return false;
         }
         height[0] = 1 + (left[0] > right[0] ? left[0] : right[0]);
