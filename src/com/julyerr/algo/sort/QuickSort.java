@@ -10,49 +10,36 @@ package com.julyerr.algo.sort;
  * 通过第一个元素作为整个待排序的中间数（比左边数都大，比右边数都小），然后递归调用（直接看代码）
  */
 public class QuickSort {
-    public static void main(String[] args) {
-//        int[] nums = new int[]{3,2,5,4,1};
-//        int[] nums = new int[]{1};
-        int[] nums = new int[]{1, 2, 2, 5, 5, 5, 3, 3};
-        QuickSort.quickSort(nums);
-        for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i] + " ");
-        }
-        System.out.println();
-    }
-
-    public static void quickSort(int[] nums) {
-        if (nums == null || nums.length < 2) {
-            return;
-        }
-        qS(nums, 0, nums.length - 1);
-    }
-
-    private static void qS(int[] nums, int left, int right) {
+    public static void quickSort(int[] array, int left, int right) {
+//            递归结束
         if (left >= right) {
             return;
         }
-//        保留起始和结束位置
-        int begin = left;
-        int end = right;
-        //        基准
-        int tmp = nums[left];
-        while (left < right) {
-            while (left < right && nums[right] >= tmp) {
-                right--;
+//        设置左右的游标
+        int start = left, end = right;
+//        保存第一个元素的值
+        int temp = array[start];
+        while (start < end) {
+//            找到右边第一个值小的元素
+            while (start < end && temp < array[end]) {
+                end--;
             }
-            if (left < right) {
-                nums[left++] = nums[right];
+//            交换
+            if (start < end)
+                array[start++] = array[end];
+//            找到左边第一个值大的元素
+            while (start < end && array[start] < temp) {
+                start++;
             }
-            while (left < right && nums[left] <= tmp) {
-                left++;
-            }
-            if (left < right) {
-                nums[right--] = nums[left];
+//            交换
+            if (start < end) {
+                array[end--] = array[start];
             }
         }
-        nums[left] = tmp;
-        qS(nums, begin, left - 1);
-        qS(nums, left + 1, end);
+//        中间量还原
+        array[start] = temp;
+//        递归调用
+        quickSort(array, left, start - 1);
+        quickSort(array, end + 1, right);
     }
 }

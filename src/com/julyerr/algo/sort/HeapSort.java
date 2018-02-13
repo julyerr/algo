@@ -1,7 +1,5 @@
 package com.julyerr.algo.sort;
 
-import com.julyerr.algo.utils.Utils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,48 +19,58 @@ import java.util.List;
 * */
 
 public class HeapSort {
+    //  使用ArrayList作为数组操作对象
+    List<Integer> maxHeap;
+
+    public HeapSort(List<Integer> maxHeap) {
+        this.maxHeap = new ArrayList<Integer>(maxHeap);
+    }
+
+    //    堆调整
+    public void heapify(int start, int end) {
+        int left;
+//        不断进行调整
+        while (start * 2 + 1 <= end) {
+            left = start * 2 + 1;
+//            寻找子节点较大的那个元素
+            if (left + 1 <= end && maxHeap.get(left) < maxHeap.get(left + 1)) {
+                left++;
+            }
+//           均比左右节点值都大
+            if (maxHeap.get(left) <= maxHeap.get(start)) {
+                break;
+            } else {
+//                交换元素
+                Integer temp = maxHeap.get(start);
+                maxHeap.set(start, maxHeap.get(left));
+                maxHeap.set(left, temp);
+            }
+        }
+    }
+
+    //    升序排序算法
+    public List<Integer> sort() {
+//        构建最大堆
+        for (int i = 0; i < maxHeap.size(); i++) {
+            heapify(i, maxHeap.size() - 1);
+        }
+//        交换最后元素和第一个元素的位置
+        for (int i = maxHeap.size() - 1; i > 0; i--) {
+            Integer temp = maxHeap.get(i);
+            maxHeap.set(i, maxHeap.get(0));
+            maxHeap.set(0, temp);
+            heapify(0, i - 1);
+        }
+        return this.maxHeap;
+    }
 
     public static void main(String[] args) {
-//        int[] nums = new int[]{3, 2, 5, 4, 1};
-//        int[] nums = new int[]{1};
-        int[] nums = new int[]{1, 2, 2, 5, 5, 5, 3, 3};
-        HeapSort.heapSort(nums);
-        for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i] + " ");
+        int[] array = new int[]{5, 6, 233, 23, 3, 0, -19, -20};
+        List<Integer> temp = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            temp.add(array[i]);
         }
-        System.out.println();
-    }
-
-    public static void heapSort(int[] nums) {
-        if (nums == null || nums.length < 2) {
-            return;
-        }
-        int length = nums.length;
-//        构建最大堆
-        for (int i = length / 2; i >= 0; i--) {
-            heaprify(nums, i, length - 1);
-        }
-//        调整最后一个元素和root的值
-        for (int i = length - 1; i > 0; i--) {
-            Utils.swap(nums, 0, i);
-            heaprify(nums, 0, i - 1);
-        }
-    }
-
-    private static void heaprify(int[] nums, int start, int end) {
-        if (start >= end) {
-            return;
-        }
-        int left = start * 2 + 1;
-        int max = left;
-        if (left + 1 <= end && nums[left + 1] > nums[left]) {
-            max = left + 1;
-        }
-//        end the recurse
-        if (max > end || nums[start] >= nums[max]) {
-            return;
-        }
-        Utils.swap(nums, start, max);
-        heaprify(nums, max, end);
+        HeapSort heapSort = new HeapSort(temp);
+        System.out.println(heapSort.sort());
     }
 }
