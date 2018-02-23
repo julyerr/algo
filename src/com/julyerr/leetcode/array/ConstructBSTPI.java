@@ -33,8 +33,8 @@ public class ConstructBSTPI {
         int i;
         for (i = start; i < end && preOrder[p] != inOrder[i]; i++) ;
         p++;
-        root.lChild = buildTree(start, i);
-        root.rChild = buildTree(i + 1, end);
+        root.left = buildTree(start, i);
+        root.right = buildTree(i + 1, end);
         return root;
     }
 }

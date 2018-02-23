@@ -38,11 +38,11 @@ public class BTSideView {
                 if (deque.peek() == END) {
                     rt.add(p.data);
                 }
-                if (p.lChild != null) {
-                    deque.add(p.lChild);
+                if (p.left != null) {
+                    deque.add(p.left);
                 }
-                if (p.rChild != null) {
-                    deque.add(p.rChild);
+                if (p.right != null) {
+                    deque.add(p.right);
                 }
             }
         }

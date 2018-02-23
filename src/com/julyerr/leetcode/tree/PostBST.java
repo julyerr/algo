@@ -27,14 +27,14 @@ public class PostBST {
                 post.node = p;
                 post.first = true;
                 stack.push(post);
-                p = p.lChild;
+                p = p.left;
             }
             if (!stack.isEmpty()) {
                 PostTreeNode t = stack.pop();
                 if (t.first) {
                     t.first = false;
                     stack.push(t);
-                    p = t.node.rChild;
+                    p = t.node.right;
                 } else {
                     rt.add(t.node.data);
                     //fetch the new node

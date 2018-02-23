@@ -25,7 +25,7 @@ public class BTPath {
         }
         path.add(node.data);
         //ensure the node is in the last level
-        if (node.lChild == null && node.rChild == null) {
+        if (node.left == null && node.right == null) {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append(path.get(0));
             for (int i = 1; i < path.size(); i++) {
@@ -33,8 +33,8 @@ public class BTPath {
             }
             rt.add(stringBuilder.toString());
         }
-        findPath(node.lChild);
-        findPath(node.rChild);
+        findPath(node.left);
+        findPath(node.right);
         path.remove(path.size() - 1);
     }
 }

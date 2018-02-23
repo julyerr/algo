@@ -33,11 +33,11 @@ public class Levelorder {
                 }
             } else {
                 level.add(p.data);
-                if (p.lChild != null) {
-                    deque.add(p.lChild);
+                if (p.left != null) {
+                    deque.add(p.left);
                 }
-                if (p.rChild != null) {
-                    deque.add(p.rChild);
+                if (p.right != null) {
+                    deque.add(p.right);
                 }
             }
         }
@@ -80,11 +80,11 @@ public class Levelorder {
 //                count++;
 //            } else {
 //                level.offer(p.data);
-//                if (p.lChild != null) {
-//                    deque.offer(p.lChild);
+//                if (p.left != null) {
+//                    deque.offer(p.left);
 //                }
-//                if (p.rChild != null) {
-//                    deque.offer(p.rChild);
+//                if (p.right != null) {
+//                    deque.offer(p.right);
 //                }
 //            }
 //        }

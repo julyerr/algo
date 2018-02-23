@@ -80,8 +80,8 @@ public class Levelorder {
 //                count++;
 //            } else {
 //                level.offer(p.data);
-//                if (p.lChild != null) {
-//                    deque.offer(p.lChild);
+//                if (p.left != null) {
+//                    deque.offer(p.left);
 //                }
 //                if (p.right != null) {
 //                    deque.offer(p.right);

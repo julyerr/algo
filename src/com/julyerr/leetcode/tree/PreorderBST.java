@@ -27,11 +27,11 @@ public class PreorderBST {
             while (p != null) {
                 rt.add(p.data);
                 stack.add(p);
-                p = p.lChild;
+                p = p.left;
             }
             if (!stack.isEmpty()) {
                 p = stack.pop();
-                p = p.rChild;
+                p = p.right;
             }
         }
         return rt;

@@ -24,8 +24,8 @@ public class InorderBST {
             return;
         }
 
-        inorder(node.lChild);
+        inorder(node.left);
         list.add(node.data);
-        inorder(node.rChild);
+        inorder(node.right);
     }
 }
