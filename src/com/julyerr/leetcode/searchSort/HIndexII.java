@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.sort;
+package com.julyerr.leetcode.searchSort;
 
 /**
  * Follow up for H-Index: What if the citations array is sorted in ascending order?

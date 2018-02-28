@@ -18,7 +18,7 @@ public class WaysSumN {
 //            for (int i = 0; i < n; i++) {
 //                nums[i] = scanner.nextInt();
 //            }
-//            Arrays.sort(nums);
+//            Arrays.searchSort(nums);
 //            dfs(nums, sum, 0);
 //            System.out.println(ways);
 //        }

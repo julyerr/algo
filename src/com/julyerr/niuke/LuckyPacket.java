@@ -38,7 +38,7 @@ public class LuckyPacket {
             for (int i = 0; i < n; i++) {
                 nums[i] = scanner.nextInt();
             }
-//            sort the array
+//            searchSort the array
             Arrays.sort(nums);
             System.out.println(luckyPacket.luckyPacket(nums, 0, 0, 1));
         }

@@ -65,14 +65,16 @@ public class ExistsNum {
 
     public static void main(String[] args) {
         int[][] nums = new int[][]{
-                {1, 2, 3, 4},
-                {5, 6, 7, 9}
+//                {1, 2, 3, 4},
+//                {5, 6, 7, 9}
+                {1,3}
         };
         ExistsNum existsNum = new ExistsNum();
+//        System.out.println(existsNum.isExists(nums, 2));
+//        System.out.println(existsNum.isExists(nums, 8));
+//        System.out.println(existsNum.isExists(nums, 1));
+//        System.out.println(existsNum.isExists(nums, 0));
+//        System.out.println(existsNum.isExists(nums, 9));
         System.out.println(existsNum.isExists(nums, 2));
-        System.out.println(existsNum.isExists(nums, 8));
-        System.out.println(existsNum.isExists(nums, 1));
-        System.out.println(existsNum.isExists(nums, 0));
-        System.out.println(existsNum.isExists(nums, 9));
     }
 }

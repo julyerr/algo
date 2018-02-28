@@ -1,7 +1,7 @@
-package com.julyerr.leetcode.sort;
+package com.julyerr.leetcode.searchSort;
 
 /**
- * Sort a linked list using insertion sort.
+ * Sort a linked list using insertion searchSort.
  */
 public class InsertSort {
     public ListNode insertSortList(ListNode head) {

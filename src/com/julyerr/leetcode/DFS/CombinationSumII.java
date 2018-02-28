@@ -33,7 +33,7 @@ public class CombinationSumII {
         if (candidates == null || candidates.length == 0) {
             return new ArrayList<>(rt);
         }
-//        sort the arrays
+//        searchSort the arrays
         Arrays.sort(candidates);
         candidate = candidates;
         dfs(0, target, new ArrayList<>());

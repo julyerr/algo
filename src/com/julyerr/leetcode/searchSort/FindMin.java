@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.sort;
+package com.julyerr.leetcode.searchSort;
 
 public class FindMin {
     public int findMin(int[] nums) {

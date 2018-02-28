@@ -41,7 +41,7 @@ public class Anagrams {
                  group ) {
                 strGroup.add(strs[i]);
             }
-//            sort the strs
+//            searchSort the strs
             strGroup.sort(new Comparator<String>() {
                 @Override
                 public int compare(String o1, String o2) {

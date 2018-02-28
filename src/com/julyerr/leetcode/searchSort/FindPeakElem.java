@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.sort;
+package com.julyerr.leetcode.searchSort;
 
 public class FindPeakElem {
     public int findPeakElement(int[] nums) {

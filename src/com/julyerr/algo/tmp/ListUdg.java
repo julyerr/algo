@@ -505,7 +505,7 @@ public class ListUdg {
             System.out.println("the graph has an cycle");
             return ;
         }
-        System.out.println("topological sort:");
+        System.out.println("topological searchSort:");
         for (int i = 0; i < length; i++) {
             System.out.print(nodes[i]+" ");
         }

@@ -33,7 +33,7 @@ public class ThreeSum {
         }
 
 
-        //sort the nums array
+        //searchSort the nums array
         Arrays.sort(nums);
         Set<List<Integer>> set = new HashSet<List<Integer>>();
         for (int start = 0; start < nums.length - 2; start++) {

@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.sort;
+package com.julyerr.leetcode.searchSort;
 
 /**
  * Given an array of citations (each citation is a non-negative integer) of a researcher,

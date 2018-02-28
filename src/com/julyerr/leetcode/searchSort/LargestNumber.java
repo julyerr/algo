@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.sort;
+package com.julyerr.leetcode.searchSort;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -17,7 +17,7 @@ public class LargestNumber {
         for (int i = 0; i < strs.length; i++) {
             strs[i] = numbers[i] + "";
         }
-        //default sort is asc
+        //default searchSort is asc
         Arrays.sort(strs, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
