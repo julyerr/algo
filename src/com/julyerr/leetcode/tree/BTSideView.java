@@ -34,7 +34,7 @@ public class BTSideView {
                     deque.add(END);
                 }
             } else {
-                //if the next node is END , just push the data into the rt
+                //if the next node is END , just push the val into the rt
                 if (deque.peek() == END) {
                     rt.add(p.data);
                 }

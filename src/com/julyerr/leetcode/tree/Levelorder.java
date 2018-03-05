@@ -79,7 +79,7 @@ public class Levelorder {
 //                }
 //                count++;
 //            } else {
-//                level.offer(p.data);
+//                level.offer(p.val);
 //                if (p.left != null) {
 //                    deque.offer(p.left);
 //                }
