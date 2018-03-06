@@ -1,7 +1,7 @@
 package com.julyerr.leetcode.searchSort;
 
 public class MergeSortedList {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 //        check validation
         if (l1 == null && l2 == null) {
             return null;
