@@ -9,7 +9,7 @@ public class MyQueue {
     private int length;
 
     /**
-     * Initialize your data structure here.
+     * Initialize your val structure here.
      */
     public MyQueue() {
         stack1 = new Stack<>();

@@ -23,20 +23,23 @@ import java.util.Arrays;
  * 2、从前到后，找到最后一个满足条件的位置，其条件为：此位置是数组的第x个，其值为y，必须满足 y >= x;
  */
 public class HIndex {
+
     public int hIndex(int[] citations) {
-        if (citations == null) {
+        if (citations == null || citations.length == 0) {
             return 0;
         }
-        int h = 0, n = citations.length;
         Arrays.sort(citations);
-        for (int i = n - 1; i >= 0; i++) {
-            if (citations[i] >= n - i) {
-                h = n - i;
+        //        针对int[]数组，从大到小不能自定义排序，因此考虑从小到大，然后做部分调整
+        int ret = 0;
+        int length = citations.length;
+        for (int i = length - 1; i >= 0; i--) {
+            if (citations[i] >= length - i) {
+                ret++;
             } else {
                 break;
             }
-
         }
-        return h;
+
+        return ret;
     }
 }

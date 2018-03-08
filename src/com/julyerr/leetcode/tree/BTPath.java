@@ -23,7 +23,7 @@ public class BTPath {
         if (node == null) {
             return;
         }
-        path.add(node.data);
+        path.add(node.val);
         //ensure the node is in the last level
         if (node.left == null && node.right == null) {
             StringBuilder stringBuilder = new StringBuilder();

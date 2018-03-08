@@ -32,7 +32,7 @@ public class Levelorder {
                     deque.add(END);
                 }
             } else {
-                level.add(p.data);
+                level.add(p.val);
                 if (p.left != null) {
                     deque.add(p.left);
                 }

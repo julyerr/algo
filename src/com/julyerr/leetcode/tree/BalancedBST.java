@@ -13,19 +13,26 @@ import com.julyerr.leetcode.array.TreeNode;
  * simple recurse the BST
  */
 public class BalancedBST {
-    public boolean isBalancedBST(TreeNode node) {
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return balancedHelp(root,new int[1]);
+    }
+
+    //    判断该节点是否平衡，并且返回node的高度
+    private boolean balancedHelp(TreeNode node, int[] height) {
         if (node == null) {
+            height[0] = 0;
             return true;
         }
 
-        return Math.abs(height(node.left) - height(node.right)) <= 1
-                && isBalancedBST(node.left) && isBalancedBST(node.right);
-    }
-
-    private int height(TreeNode node) {
-        if (node == null) {
-            return 0;
+        int[] left = new int[1];
+        int[] right = new int[1];
+        if (!balancedHelp(node.left, left) || !balancedHelp(node.right, right) || Math.abs(left[0] - right[0]) > 1) {
+            return false;
         }
-        return Math.max(height(node.left), height(node.right)) + 1;
+        height[0] = Math.max(left[0], right[0]) + 1;
+        return true;
     }
 }

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class MyStack {
 
     private LinkedList<Integer> queue ;
-    /** Initialize your data structure here. */
+    /** Initialize your val structure here. */
     public MyStack() {
         queue = new LinkedList<>();
     }

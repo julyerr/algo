@@ -9,24 +9,31 @@ import java.util.Comparator;
  * Note: The result may be very large, so you need to return a string instead of an integer.
  */
 public class LargestNumber {
-    public String largestNumber(int[] numbers) {
-        if (numbers == null || numbers.length == 0) {
+    public String largestNumber(int[] nums) {
+        if(nums == null || nums.length ==0){
             return "";
         }
-        String[] strs = new String[numbers.length];
-        for (int i = 0; i < strs.length; i++) {
-            strs[i] = numbers[i] + "";
+
+        int length = nums.length;
+        String[] strings = new String[length];
+        for (int i = 0; i < length; i++) {
+            strings[i] = ""+nums[i];
         }
-        //default searchSort is asc
-        Arrays.sort(strs, new Comparator<String>() {
+
+//        自定义字典序排序规则
+        Arrays.sort(strings, new Comparator<String>() {
+//            系统调用比较的是 (o1+o2).compareTo(o2+o1)
             @Override
             public int compare(String o1, String o2) {
-                return (o2 + o1).compareTo(o1 + o2);
+                return (o2+o1).compareTo(o1+o2);
             }
         });
-        if ("0".equals(strs[0])) {
+
+//        0开头，整个数组都是0
+        if(strings[0].equals("0")){
             return "0";
         }
-        return String.join("", strs);
+
+        return String.join("",strings);
     }
 }
