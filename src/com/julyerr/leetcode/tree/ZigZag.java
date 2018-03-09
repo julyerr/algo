@@ -1,17 +1,11 @@
 package com.julyerr.leetcode.tree;
 
-import com.julyerr.leetcode.array.TreeNode;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import java.util.*;
-
-/**
- * Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
- */
-
-//if from bottom to the top
-//        Collections.reverse(rt);
-public class Levelorder {
-    public List<List<Integer>> levelOrder(TreeNode root) {
+public class ZigZag {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> rt = new ArrayList<>();
         if (root == null) {
             return rt;
@@ -19,6 +13,7 @@ public class Levelorder {
 
         List<TreeNode> cur = new ArrayList<>();
         cur.add(root);
+        boolean flag = true;
         while (!cur.isEmpty()) {
             List<TreeNode> next = new ArrayList<>();
             List<Integer> tmp = new ArrayList<>();
@@ -34,6 +29,10 @@ public class Levelorder {
                 }
             }
 //            交换，下一次迭代
+            if (!flag) {
+                Collections.reverse(tmp);
+            }
+            flag = !flag;
             rt.add(tmp);
             cur = next;
         }

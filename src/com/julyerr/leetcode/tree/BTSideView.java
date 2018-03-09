@@ -18,33 +18,30 @@ import java.util.List;
  */
 
 public class BTSideView {
-    public List<Integer> rightSideView(TreeNode node) {
-        List<Integer> rt = new ArrayList<Integer>();
-        if (node == null) {
+
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> rt = new ArrayList<>();
+        if (root == null) {
             return rt;
         }
-        Deque<TreeNode> deque = new LinkedList<TreeNode>();
-        final TreeNode END = new TreeNode(0);
-        deque.add(node);
-        deque.add(END);
-        while (!deque.isEmpty()) {
-            TreeNode p = deque.pop();
-            if (p == END) {
-                if (!deque.isEmpty()) {
-                    deque.add(END);
+
+        List<TreeNode> cur = new ArrayList<>();
+        cur.add(root);
+        while (!cur.isEmpty()) {
+            List<TreeNode> next = new ArrayList<>();
+//            下一层元素添加
+            for (TreeNode node :
+                    cur) {
+                if (node.left != null) {
+                    next.add(node.left);
                 }
-            } else {
-                //if the next node is END , just push the val into the rt
-                if (deque.peek() == END) {
-                    rt.add(p.val);
-                }
-                if (p.left != null) {
-                    deque.add(p.left);
-                }
-                if (p.right != null) {
-                    deque.add(p.right);
+                if (node.right != null) {
+                    next.add(node.right);
                 }
             }
+            rt.add(cur.get(cur.size() - 1).val);
+            //            交换，下一次迭代
+            cur = next;
         }
         return rt;
     }
