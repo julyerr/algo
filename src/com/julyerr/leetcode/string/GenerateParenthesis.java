@@ -1,6 +1,7 @@
 package com.julyerr.leetcode.string;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Generate Parentheses
@@ -15,26 +16,32 @@ import java.util.ArrayList;
  * using dfs to overlay the cases
  */
 public class GenerateParenthesis {
-    public ArrayList<String> generateParenthesis(int n) {
-        ArrayList<String> rt = new ArrayList<String>();
-        if (n > 0) {
-            dfs(rt, "", n, n);
+    public List<String> generateParenthesis(int n) {
+        List<String> rt = new ArrayList<>();
+        if (n < 1) {
+            return rt;
         }
+        dfs(rt, "", n, n);
         return rt;
     }
 
-    void dfs(ArrayList<String> rt, String s, int left, int right) {
+    private void dfs(List<String> rt, String cur, int left, int right) {
+//        保证left优先出现
         if (left > right) {
             return;
         }
         if (left == 0 && right == 0) {
-            rt.add(s);
+            rt.add(cur);
+            return;
         }
+//        先生成（
         if (left > 0) {
-            dfs(rt, s + "(", left - 1, right);
+            dfs(rt, cur + '(', left - 1, right);
         }
+
+//        后生成）
         if (right > 0) {
-            dfs(rt, s + ")", left, right - 1);
+            dfs(rt, cur + ')', left, right);
         }
     }
 }

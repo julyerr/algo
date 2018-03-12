@@ -8,17 +8,27 @@ public class LenOfCommonPrefix {
         if (strs == null || strs.length == 0) {
             return "";
         }
-        String string = strs[0];
-        if (strs.length == 1) {
-            return string;
+        int length = strs.length;
+//        如果只存在一个字符串直接返回
+        if (length == 1) {
+            return strs[0];
         }
-        for (int i = 0; i < string.length(); i++) {
-            for (int j = 1; j < strs.length; j++) {
-                if (!(i < strs[j].length() && string.charAt(i) == strs[j].charAt(j))) {
-                    return string.substring(0, i);
+        int ret = 0;
+        for (int i = 0; i < strs[0].length(); i++) {
+            char c = strs[0].charAt(i);
+            boolean valid = true;
+//            针对字符串组的当下字符进行判断
+            for (int j = 1; j < length; j++) {
+                if (i >= strs[j].length() || strs[j].charAt(i) != c) {
+                    valid = false;
+                    break;
                 }
             }
+            if (!valid) {
+                break;
+            }
+            ret++;
         }
-        return string;
+        return strs[0].substring(0, ret);
     }
 }
