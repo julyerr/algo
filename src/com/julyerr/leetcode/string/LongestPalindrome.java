@@ -7,33 +7,33 @@ package com.julyerr.leetcode.string;
  */
 public class LongestPalindrome {
     public String longestPalindrome(String s) {
-        if (s == null || s.length() == 0) {
-            return "";
+        if(s==null||s.length() < 2){
+            return s;
         }
-        int start = 0, end = 0;
-        int length = end - start;
-        for (int i = 0; i < s.length()-length; i++) {
-            if(i < s.length() - 1 && s.charAt(i) == s.charAt(i+1)){
-                length = longest(s,i,i+1);
-            }else{
-                length = longest(s,i,i);
+        int start = 0,len = 0;
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
+//            不可能出现更长的回文
+            if(i+len/2 >= length){
+                break;
             }
-            if(start-end<length){
-                start = i - (length-1)/2;
-                end = i+length/2;
-            }else{
-                length = start-end+1;
+//            当前字符的回文长度计算
+            int len1 = lenPalindromeOfThisChar(s,i,i);
+            int len2 = lenPalindromeOfThisChar(s,i,i+1);
+            int tmp = Math.max(len1,len2);
+            if(len < tmp){
+                len = tmp;
+                start = i - (len-1) / 2;
             }
         }
-        return s.substring(start,end+1);
+        return s.substring(start,start+len);
     }
 
-    private int longest(String s, int left, int right) {
-        while (left >= 0 && right < s.length() &&
-                s.charAt(left) == s.charAt(right)) {
+    private int lenPalindromeOfThisChar(String s,int left,int right){
+        while(left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)){
             left--;
             right++;
         }
-        return right - left - 1;
+        return right-left-1;
     }
 }

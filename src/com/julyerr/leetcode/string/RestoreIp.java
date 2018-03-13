@@ -16,32 +16,38 @@ import java.util.List;
  * for every three digits just dfs
  */
 public class RestoreIp {
-    List<String> rt = new ArrayList<String>();
-    String[] stack = new String[4];
-    public List<String> restoreIpAddress(String s){
-        if(s == null || s.length() ==0){
-            return new ArrayList<String>();
+    List<String> rt;
+    String[] strs = new String[4];
+
+    public List<String> restoreIpAddresses(String s) {
+        rt = new ArrayList<>();
+        if (s == null || s.length() < 4) {
+            return rt;
         }
-        dfs(s,0,0);
+        dfs(s, 0, 0);
         return rt;
     }
-    public void dfs(String s,int p,int pStack){
-        if(pStack == 4 && p >= s.length()){
-            String ip = String.join(".",stack);
-            rt.add(ip);
+
+    private void dfs(String s, int cur, int segs) {
+        if (segs == 4) {
+            if (cur >= s.length()) {
+                rt.add(String.join(".", strs));
+            }
             return;
         }
+//        考虑接下来的1-3个字符划分为新的一段
         for (int i = 1; i <= 3; i++) {
-            if(p+i > s.length()){
+            if (cur + i > s.length()) {
                 return;
             }
-            if(s.charAt(p) =='0' && i> 1){
+//            如果当前字符是0,除了当前0为一段之外，其他直接返回
+            if (i > 1 && s.charAt(cur) == '0') {
                 return;
             }
-            String number  = s.substring(p,p+i);
-            if(Integer.parseInt(number) <= 255){
-                stack[pStack] = number;
-                dfs(s,p+i,pStack+1);
+            String number = s.substring(cur, cur + i);
+            if (Integer.parseInt(number) <= 255) {
+                strs[segs] = number;
+                dfs(s, cur + i, segs + 1);
             }
         }
     }
