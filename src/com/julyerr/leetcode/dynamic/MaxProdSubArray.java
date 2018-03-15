@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.array;
+package com.julyerr.leetcode.dynamic;
 
 public class MaxProdSubArray {
     public int maxProduct(int[] nums) {

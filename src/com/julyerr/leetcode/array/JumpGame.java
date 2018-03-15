@@ -10,7 +10,7 @@ public class JumpGame {
         int length = nums.length;
         for (int i = 0; i < length; i++) {
 //            选择最大的step
-            maxStep = Math.max(maxStep, nums[i] + i);
+            maxStep = Math.max(maxStep, nums[i]  + i);
             if (maxStep >= nums.length - 1) {
                 return true;
             }

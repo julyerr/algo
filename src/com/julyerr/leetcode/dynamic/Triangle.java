@@ -11,44 +11,48 @@ import java.util.List;
  */
 public class Triangle {
     public int minimumTotal(List<List<Integer>> triangle) {
-        if (triangle == null || triangle.size() == 0 || triangle.get(0).size() == 0) {
+        if (triangle == null || triangle.size() == 0 || triangle.get(0) == null || triangle.get(0).size() == 0) {
             return 0;
         }
-        int length = triangle.size();
-        int[] dp = new int[length];
-        int[] dp1 = new int[length];
-        dp1[0] = dp[0] = triangle.get(0).get(0);
-        int min = dp[0];
-        for (int i = 0; i < length - 1; i++) {
-            List<Integer> list = triangle.get(i + 1);
-            int len = list.size();
-            for (int j = 0; j < len; j++) {
-                int value = list.get(j);
-                if (j != 0 && j != len - 1) {
-                    dp[j] = Math.min(dp1[j], dp1[j - 1]) + value;
-                } else if (j == 0) {
-                    dp[j] = dp1[j] + value;
-                    min = dp[j];
+//        设置前后两个数组保持层次顺序
+        int[] pre = new int[]{triangle.get(0).get(0)};
+        int min = pre[0];
+
+        for (int i = 1; i < triangle.size(); i++) {
+            int[] cur = new int[i + 1];
+            List<Integer> tmp = triangle.get(i);
+            for (int j = 0; j < i + 1; j++) {
+                int val = tmp.get(j);
+//                边缘情况直接复制元素下来相加即可
+                if (j == 0) {
+                    cur[j] = val + pre[j];
+                    min = cur[j];
+                } else if (j == i) {
+                    cur[j] = val + pre[j-1];
+//                    取上层元素的最小值
                 } else {
-                    dp[j] = dp1[j - 1] + value;
+                    cur[j] = Math.min(pre[j], pre[j - 1]) + val;
                 }
-                if (min > dp[j]) {
-                    min = dp[j];
+                if (min > cur[j]) {
+                    min = cur[j];
                 }
             }
-//            notes for the new array allocated , rather than refObj1 = refObj2
-            dp1 = Arrays.copyOf(dp, dp.length);
+//            交替迭代
+            pre = cur;
         }
         return min;
     }
 
-    public static void main(String[] args) {
-        Integer[][] nums = new Integer[][]{{-1}, {2, 3}, {1, -1, -3}};
+    public static void main(String[] args){
         Triangle triangle = new Triangle();
-        List<List<Integer>> list = new ArrayList<List<Integer>>();
-        for (int i = 0; i < nums.length; i++) {
-            list.add(Arrays.asList((Integer[]) nums[i]));
+        Integer[][] integers = new Integer[][]{
+                {-1},
+                {-2,-3},
+        };
+        List<List<Integer>> rt = new ArrayList<>();
+        for (int i = 0; i < integers.length; i++) {
+            rt.add(Arrays.asList(integers[i]));
         }
-        System.out.println(triangle.minimumTotal(list));
+        System.out.println(triangle.minimumTotal(rt));
     }
 }

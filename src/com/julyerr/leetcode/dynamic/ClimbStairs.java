@@ -8,30 +8,16 @@ package com.julyerr.leetcode.dynamic;
 
  */
 public class ClimbStairs {
-    //递归关系式:f(n) = f(n-1)+f(n-2)
-    public int climbStairs(int n){
-        if(n < 2){
-            return 1;
+    public int climbStairs(int n) {
+        if(n<2){
+            return n;
         }
-        int[] steps = new int[n+1];
-        steps[0] = 0;
-        steps[1] = 1;
+        int step0 = 1;
+        int step1 = 1;
+        int step2 =0;
+//        三个变量，循环计算结果
         for (int i = 2; i <= n; i++) {
-            steps[i] = steps[i-2] +steps[i-1];
-        }
-        return steps[n];
-    }
-
-    //整个过程只是使用到三个变量，使用三个变量进行优化
-    public int climbStairs2(int n){
-        int step0,step1,step2=0;
-        step0 = 0;
-        step1 = 1;
-        if(n <2){
-            return 1;
-        }
-        for (int i = 2; i <= n; i++) {
-            step2 = step0+ step1;
+            step2 = step0+step1;
             step0 = step1;
             step1 = step2;
         }

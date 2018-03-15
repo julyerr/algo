@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.array;
+package com.julyerr.leetcode.dynamic;
 
 public class MinSizeSubArray {
     public int minSubArrayLen(int s, int[] nums) {

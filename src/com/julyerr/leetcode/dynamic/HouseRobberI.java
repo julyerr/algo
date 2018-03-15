@@ -5,27 +5,27 @@ package com.julyerr.leetcode.dynamic;
  * Each house has a certain amount of money stashed,
  * the only constraint stopping you from robbing each of them is that adjacent houses have security system connected
  * and it will automatically contact the police if two adjacent houses were broken into on the same night.
-
- Given a list of non-negative integers representing the amount of money of each house,
- determine the maximum amount of money you can rob tonight without alerting the police.
-
+ * <p>
+ * Given a list of non-negative integers representing the amount of money of each house,
+ * determine the maximum amount of money you can rob tonight without alerting the police.
  */
+
 public class HouseRobberI {
     public int rob(int[] nums) {
-        int length = nums.length;
-        if(length == 0){
+        if (nums == null || nums.length == 0) {
             return 0;
-        }else if (length == 1){
+        }
+        int length = nums.length;
+        if (length < 2) {
             return nums[0];
         }
-        int step0,step1,step2;
-        step0 = step2 = 0;
-        step1 = nums[0];
-        for (int i = 1; i < length; i++) {
-            step2 = Math.max(step1,step0+nums[i]);
-            step0 = step1;
-            step1 = step2;
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < length; i++) {
+//            递归的判断的关键
+            dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
         }
-        return step2;
+        return dp[length - 1];
     }
 }
