@@ -25,33 +25,36 @@ import java.util.Queue;
 
 //就是利用拓扑排序进行查找
 public class CourseScheduleI {
-    public boolean canFinished(int courseNum, int[][] prequisition) {
-        int length = prequisition.length;
-        int[] ins = new int[courseNum];
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < length; i++) {
-            ins[prequisition[i][0]]++;
+    public boolean canFinish(int courseNum, int[][] prequisition) {
+        if (prequisition == null || prequisition.length == 0 || prequisition[0] == null || prequisition[0].length < 2) {
+            return true;
         }
-        int index = 0;
+        int[] count = new int[courseNum];
+//        统计课程的先修数
+        for (int i = 0; i < prequisition.length; i++) {
+            count[prequisition[i][0]]++;
+        }
+        Queue<Integer> queue = new LinkedList<>();
+//        没有先修课程的课程加入队列
         for (int i = 0; i < courseNum; i++) {
-            if (ins[i] == 0) {
-                index++;
+            if (count[i] == 0) {
                 queue.add(i);
             }
         }
+        int finishedCourse = queue.size();
         while (!queue.isEmpty()) {
-//            int tmp = queue.remove()方式相同，但是poll更加符合表面的含义
-            int tmp = queue.poll();
-            for (int i = 0; i < length; i++) {
-                if (prequisition[i][1] == tmp) {
-                    ins[prequisition[i][0]]--;
-                    if (ins[prequisition[i][0]] == 0) {
-                        index++;
-                        queue.add(i);
+            int finished = queue.poll();
+            for (int i = 0; i < prequisition.length; i++) {
+                if (prequisition[i][1] == finished) {
+                    count[prequisition[i][0]]--;
+                    if (count[prequisition[i][0]] == 0) {
+//                        没有先修课程的课程加入队列
+                        finishedCourse++;
+                        queue.add(prequisition[i][0]);
                     }
                 }
             }
         }
-        return index == courseNum;
+        return finishedCourse == courseNum;
     }
 }
