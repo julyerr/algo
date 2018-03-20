@@ -1,4 +1,4 @@
-package com.julyerr.niuke;
+package com.julyerr.niuke.array;
 
 /**
  * 题目描述
@@ -27,6 +27,7 @@ public class DisApple {
         for (int i = 0; i < length; i++) {
             sum += nums[i];
         }
+//        不能整除直接返回
         if (sum % length != 0) {
             return -1;
         }
@@ -37,6 +38,7 @@ public class DisApple {
             if (tmp % 2 != 0) {
                 return -1;
             }
+//            只需要针对大于或者小于平均值的所有元素统计次数
             if (nums[i] < average) {
                 total += average - nums[i];
             }

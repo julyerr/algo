@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.array;
+package com.julyerr.leetcode.bitmap;
 
 public class MissingNumber {
     public int missingNumber(int[] nums) {

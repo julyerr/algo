@@ -1,4 +1,4 @@
-package com.julyerr.niuke;
+package com.julyerr.niuke.dp;
 
 import java.util.Scanner;
 

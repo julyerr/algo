@@ -1,4 +1,4 @@
-package com.julyerr.niuke;
+package com.julyerr.niuke.map;
 
 
 import java.util.HashMap;

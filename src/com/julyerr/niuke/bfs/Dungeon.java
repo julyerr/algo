@@ -1,4 +1,4 @@
-package com.julyerr.niuke;
+package com.julyerr.niuke.bfs;
 
 import java.util.LinkedList;
 import java.util.Queue;
