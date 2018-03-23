@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.DFS;
+package com.julyerr.leetcode.bitmap;
 
 import java.util.*;
 
