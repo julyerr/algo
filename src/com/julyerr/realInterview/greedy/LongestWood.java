@@ -1,12 +1,12 @@
-package com.julyerr.niuke.company.exam1;
+package com.julyerr.realInterview.greedy;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
 /*
-* 最后一个测试用例没有通过
-* */
+ * 最后一个测试用例没有通过
+ * */
 public class LongestWood {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -28,6 +28,9 @@ public class LongestWood {
             });
             int max = Integer.MIN_VALUE;
             int[] ends = new int[n];
+            for (int i = 0; i < n; i++) {
+                ends[i] = i;
+            }
             for (int i = 0; i < m; i++) {
                 int start = getEnd(ends, nodes[i].start);
                 int end = getEnd(ends, nodes[i].end);
@@ -43,7 +46,9 @@ public class LongestWood {
     }
 
     public static int getEnd(int[] ends, int index) {
-        while (ends[index] != 0) {
+        while (index != ends[index]) {
+//            路径压缩
+            //            ends[index] = ends[ends[index]];
             index = ends[index];
         }
         return index;
