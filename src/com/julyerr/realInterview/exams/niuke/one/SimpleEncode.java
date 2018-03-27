@@ -1,4 +1,4 @@
-package com.julyerr.niuke.company.exam1;
+package com.julyerr.realInterview.exams.niuke.one;
 
 import java.util.Scanner;
 

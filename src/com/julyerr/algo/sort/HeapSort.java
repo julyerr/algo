@@ -7,7 +7,6 @@ import java.util.List;
 关于算法稳定性：
 堆排序、快速排序、希尔排序、直接选择排序不是稳定的排序算法，
 而基数排序、冒泡排序、直接插入排序、折半插入排序、归并排序是稳定的排序算法。
-
 *
  *
   *
@@ -20,57 +19,44 @@ import java.util.List;
 
 public class HeapSort {
     //  使用ArrayList作为数组操作对象
-    List<Integer> maxHeap;
-
-    public HeapSort(List<Integer> maxHeap) {
-        this.maxHeap = new ArrayList<Integer>(maxHeap);
-    }
-
-    //    堆调整
-    public void heapify(int start, int end) {
-        int left;
-//        不断进行调整
-        while (start * 2 + 1 <= end) {
-            left = start * 2 + 1;
-//            寻找子节点较大的那个元素
-            if (left + 1 <= end && maxHeap.get(left) < maxHeap.get(left + 1)) {
-                left++;
-            }
-//           均比左右节点值都大
-            if (maxHeap.get(left) <= maxHeap.get(start)) {
-                break;
-            } else {
-//                交换元素
-                Integer temp = maxHeap.get(start);
-                maxHeap.set(start, maxHeap.get(left));
-                maxHeap.set(left, temp);
-            }
+    public static void heapSort(int[] nums) {
+        if (nums == null || nums.length < 2) {
+            return;
+        }
+        int length = nums.length;
+        for (int i = length / 2 - 1; i >= 0; i--) {
+            heaprify(nums, i, length - 1);
+        }
+        for (int i = length - 1; i > 0; i--) {
+            int tmp = nums[i];
+            nums[i] = nums[0];
+            nums[0] = tmp;
+            heaprify(nums, 0, i - 1);
         }
     }
 
-    //    升序排序算法
-    public List<Integer> sort() {
-//        构建最大堆
-        for (int i = 0; i < maxHeap.size(); i++) {
-            heapify(i, maxHeap.size() - 1);
+    private static void heaprify(int[] nums, int start, int end) {
+        if (start >= end || start * 2 + 1 > end) {
+            return;
         }
-//        交换最后元素和第一个元素的位置
-        for (int i = maxHeap.size() - 1; i > 0; i--) {
-            Integer temp = maxHeap.get(i);
-            maxHeap.set(i, maxHeap.get(0));
-            maxHeap.set(0, temp);
-            heapify(0, i - 1);
+        int max = 2 * start + 1;
+        if (max + 1 <= end && nums[max] < nums[max + 1]) {
+            max = max + 1;
         }
-        return this.maxHeap;
+        if (nums[max] <= nums[start]) {
+            return;
+        }
+        int tmp = nums[max];
+        nums[max] = nums[start];
+        nums[start] = tmp;
+        heaprify(nums, max, end);
     }
 
     public static void main(String[] args) {
-        int[] array = new int[]{5, 6, 233, 23, 3, 0, -19, -20};
-        List<Integer> temp = new ArrayList<>();
+        int[] array = new int[]{5, 6, 233, 23, 3, 3, 3, 5, 5, 5, 3, 0, -19, -20};
+        heapSort(array);
         for (int i = 0; i < array.length; i++) {
-            temp.add(array[i]);
+            System.out.print(array[i] + " ");
         }
-        HeapSort heapSort = new HeapSort(temp);
-        System.out.println(heapSort.sort());
     }
 }

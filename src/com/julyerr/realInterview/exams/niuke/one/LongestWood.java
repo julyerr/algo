@@ -1,9 +1,12 @@
-package com.julyerr.realInterview.greedy;
+package com.julyerr.realInterview.exams.niuke.one;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
 
+/*
+ * 最后一个测试用例没有通过
+ * */
 public class LongestWood {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
