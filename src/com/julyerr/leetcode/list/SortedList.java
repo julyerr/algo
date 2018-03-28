@@ -24,7 +24,7 @@ public class SortedList {
         if (head == null) {
             return null;
         }
-        //        single node
+        //        single Node
         if (head.next == null) {
             return head;
         }

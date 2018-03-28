@@ -11,7 +11,7 @@ package com.julyerr.leetcode.searchSort;
  * and each of them had received 3, 0, 6, 1, 5 citations respectively. Since the researcher has 3 papers with at least 3 citations each
  * and the remaining two with no more than 3 citations each, his h-index is 3.
  * <p>
- * Note: If there are several possible values for h, the maximum one is taken as the h-index.
+ * Note: If there are several possible values for h, the maximum one0327 is taken as the h-index.
  * <p>
  * Hint:
  */

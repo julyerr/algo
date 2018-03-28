@@ -11,7 +11,7 @@ import java.util.*;
  * Given the total number of courses and a list of prerequisite pairs,
  * return the ordering of courses you should take to finish all courses.
  * <p>
- * There may be multiple correct orders, you just need to return one of them.
+ * There may be multiple correct orders, you just need to return one0327 of them.
  * If it is impossible to finish all courses, return an empty array.
  */
 

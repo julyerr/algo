@@ -58,7 +58,7 @@ public class ListUdg {
             System.out.println("input number error");
             return;
         }
-        System.out.println("please input the char of each node");
+        System.out.println("please input the char of each Node");
         Vnodes = new Vnode[vNum];
         map = new HashMap<>();
         for (int i = 0; i < vNum; i++) {
@@ -102,7 +102,7 @@ public class ListUdg {
         for (int i = 0; i < length; i++) {
             map.put(inodes[i], i);
         }
-//        initial the node
+//        initial the Node
         for (int i = 0; i < length; i++) {
             Vnodes[i] = new Vnode();
             Vnodes[i].data = inodes[i];

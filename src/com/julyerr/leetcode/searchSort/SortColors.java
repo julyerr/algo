@@ -15,7 +15,7 @@ package com.julyerr.leetcode.searchSort;
  * A rather straight forward solution is a two-pass algorithm using counting searchSort.
  * First, iterate the array counting number of 0's, 1's, and 2's, then overwrite array with total number of 0's, then 1's and followed by 2's.
  * <p>
- * Could you come up with an one-pass algorithm using only constant space?
+ * Could you come up with an one0327-pass algorithm using only constant space?
  */
 
 /**

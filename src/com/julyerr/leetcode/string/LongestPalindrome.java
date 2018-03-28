@@ -3,7 +3,7 @@ package com.julyerr.leetcode.string;
 /**
  * Given a string S, find the longest palindromic substring in S.
  * You may assume that the maximum length of S is 1000, and
- * there exists one unique longest palindromic substring.
+ * there exists one0327 unique longest palindromic substring.
  */
 public class LongestPalindrome {
     public String longestPalindrome(String s) {

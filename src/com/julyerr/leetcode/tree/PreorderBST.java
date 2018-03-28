@@ -12,31 +12,31 @@ import java.util.Stack;
 
 
 /**
- * using stackQueue to store the right node
+ * using stackQueue to store the right Node
  */
 public class PreorderBST {
 //    递归形式
-//    public List<Integer> preorderTraversal(TreeNode node) {
+//    public List<Integer> preorderTraversal(TreeNode Node) {
 //        List<Integer> rt = new ArrayList<>();
-//        if(node == null){
+//        if(Node == null){
 //            return rt;
 //        }
 //        //called by multi times,clear it first
-//        preorder(node,rt);
+//        preorder(Node,rt);
 //        return rt;
 //    }
 //
-//    private void preorder(TreeNode node,List<Integer> rt) {
-//        if (node == null) {
+//    private void preorder(TreeNode Node,List<Integer> rt) {
+//        if (Node == null) {
 //            return;
 //        }
 //
 ////        添加元素
-//        rt.add(node.val);
+//        rt.add(Node.val);
 ////        递归left
-//        preorder(node.left,rt);
+//        preorder(Node.left,rt);
 ////        递归right
-//        preorder(node.right,rt);
+//        preorder(Node.right,rt);
 //    }
 
     //    非递归形式

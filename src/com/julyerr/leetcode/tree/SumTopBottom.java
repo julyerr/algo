@@ -11,20 +11,20 @@ public class SumTopBottom {
 //        return sum;
 //    }
 //
-//    private void dfs(TreeNode node,List<Integer> cur){
-//        if(node == null){
+//    private void dfs(TreeNode Node,List<Integer> cur){
+//        if(Node == null){
 //            return;
 //        }
-//        cur.add(node.val);
-//        if(node.left==null&&node.right==null){
+//        cur.add(Node.val);
+//        if(Node.left==null&&Node.right==null){
 //            int tmp = 0;
 //            for (int i = 0; i < cur.size(); i++) {
 //                tmp = 10*tmp+cur.get(i);
 //            }
 //            sum += tmp;
 //        }
-//        dfs(node.left,cur);
-//        dfs(node.right,cur);
+//        dfs(Node.left,cur);
+//        dfs(Node.right,cur);
 //        cur.remove(cur.size()-1);
 //    }
 

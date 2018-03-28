@@ -30,7 +30,7 @@ public class FourSum {
         Arrays.sort(nums);
         Set<List<Integer>> set = new HashSet<List<Integer>>();
         for (int a = 0; a < nums.length - 3; a++) {
-            //just offer one more loop
+            //just offer one0327 more loop
             int target3Sum = target - nums[a];
             for (int b = 0; b < nums.length - 2; b++) {
                 int c = b+1,d = nums.length-1;

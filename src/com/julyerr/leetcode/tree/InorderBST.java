@@ -12,27 +12,27 @@ import java.util.Stack;
 
 public class InorderBST {
 //    递归形式
-//    public List<Integer> inorderTraversal(TreeNode node) {
+//    public List<Integer> inorderTraversal(TreeNode Node) {
 //        List<Integer> rt = new ArrayList<>();
-//        if(node == null){
+//        if(Node == null){
 //            return rt;
 //        }
 //        //called by multi times,clear it first
-//        inorder(node,rt);
+//        inorder(Node,rt);
 //        return rt;
 //    }
 //
-//    private void inorder(TreeNode node,List<Integer> rt) {
-//        if (node == null) {
+//    private void inorder(TreeNode Node,List<Integer> rt) {
+//        if (Node == null) {
 //            return;
 //        }
 //
 ////        递归left
-//        inorder(node.left,rt);
+//        inorder(Node.left,rt);
 ////        添加元素
-//        rt.add(node.val);
+//        rt.add(Node.val);
 ////        递归right
-//        inorder(node.right,rt);
+//        inorder(Node.right,rt);
 //    }
 
 //    非递归形式

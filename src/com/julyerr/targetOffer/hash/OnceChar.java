@@ -11,7 +11,7 @@ import java.util.Queue;
  * 当读完google时，第一个只出现一次的字符是l。
  */
 public class OnceChar {
-    //Insert one char from stringstream
+    //Insert one0327 char from stringstream
     private Queue<Character> queue = new LinkedList<>();
     private Map<Character, Integer> map = new HashMap<>();
     private char cur = '#';
