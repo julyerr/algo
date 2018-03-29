@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.array;
+package com.julyerr.realInterview.exams.xiechen0329;
 
 import java.util.Scanner;
 
