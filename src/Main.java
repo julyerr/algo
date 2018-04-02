@@ -44,6 +44,101 @@ public class Main {
      * 当然，你也可以不按照这个模板来作答，完全按照自己的想法来 ^-^
      **/
     public static void main(String[] args) {
+        Main main = new Main();
+        System.out.println(main.calculateII("1*2+3/4-4/4"));
     }
 
+    public int calculate(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        Stack<Integer> stack = new Stack<>();
+        int signed = 1;
+        int ret = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '+') {
+                signed = 1;
+            } else if (c == '-') {
+                signed = -1;
+            } else if (Character.isDigit(c)) {
+                int tmp = c - '0';
+                while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
+                    tmp = tmp * 10 + s.charAt(i + 1) - '0';
+                    i++;
+                }
+                ret += signed * tmp;
+            } else if (c == '(') {
+                stack.push(ret);
+                stack.push(signed);
+
+                ret = 0;
+                signed = 1;
+            } else if (c == ')') {
+                ret = ret * stack.pop() + stack.pop();
+                signed = 1;
+            }
+        }
+
+        return ret;
+    }
+
+    public int calculateII(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            if (Character.isDigit(c)) {
+                int tmp = c - '0';
+                while (i + 1 < s.length() && Character.isDigit(s.charAt(i + 1))) {
+                    tmp = tmp * 10 + s.charAt(i + 1) - '0';
+                    i++;
+                }
+                if (!stack.isEmpty() && (stack.peek() == 2 || stack.peek() == 3)) {
+                    int sign = stack.pop();
+                    int val = stack.pop();
+                    if (sign == 2) {
+                        val *= tmp;
+                    } else {
+                        val /= tmp;
+                    }
+                    stack.push(val);
+                } else {
+                    stack.push(tmp);
+                }
+            } else {
+                switch (c) {
+                    case '+':
+                        stack.push(0);
+                        break;
+                    case '-':
+                        stack.push(1);
+                        break;
+                    case '*':
+                        stack.push(2);
+                        break;
+                    case '/':
+                        stack.push(3);
+                        break;
+                }
+            }
+        }
+        Collections.reverse(stack);
+        int tmp = stack.pop();
+        while (!stack.isEmpty()) {
+            int sign = stack.pop();
+            int val = stack.pop();
+            if (sign == 0) {
+                tmp += val;
+            } else {
+                tmp -= val;
+            }
+        }
+        return tmp;
+    }
 }
