@@ -2,6 +2,9 @@ package com.julyerr.realInterview.exams.netease.neitui2018;
 
 import java.util.Scanner;
 
+/*
+* 整体思路，沿着中心朝两个方面分别延展
+* */
 public class IntegerSeq {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -10,6 +13,7 @@ public class IntegerSeq {
             int[] nums = new int[n];
             int mid = n / 2;
             int index = 0;
+//            奇偶两种情况分别进行处理
             if(n%2!=0){
                 nums[mid] = scanner.nextInt();
                 index++;
