@@ -1,4 +1,4 @@
-package com.julyerr.realInterview.exams.xiechen0329;
+package com.julyerr.realInterview.exams.xiechen0329.chouzhao2018;
 
 import java.util.Scanner;
 

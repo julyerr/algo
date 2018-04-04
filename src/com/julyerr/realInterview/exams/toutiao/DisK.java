@@ -1,4 +1,4 @@
-package com.julyerr.niuke.company.toutiao;
+package com.julyerr.realInterview.exams.toutiao;
 
 import java.util.HashMap;
 import java.util.Map;

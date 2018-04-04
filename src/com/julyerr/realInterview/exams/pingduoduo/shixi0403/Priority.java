@@ -6,7 +6,7 @@ public class Priority {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
-            int n =scanner.nextInt();
+            int n = scanner.nextInt();
             int k = scanner.nextInt();
             int[] nums = new int[n];
             for (int i = 0; i < n; i++) {
@@ -15,27 +15,28 @@ public class Priority {
             int min = Integer.MAX_VALUE;
             int max = Integer.MIN_VALUE;
             for (int i = 0; i < k; i++) {
-                min = Math.min(min,nums[i]);
-                max = Math.max(max,nums[i]);
+                min = Math.min(min, nums[i]);
+                max = Math.max(max, nums[i]);
             }
-            System.out.print(max-min);
+            System.out.print(max - min);
             for (int i = k; i < n; i++) {
-                int tmp = nums[i-k];
-                min = Math.min(min,nums[i]);
-                max = Math.max(max,nums[i]);
-                if(min == tmp){
+                int tmp = nums[i - k];
+                min = Math.min(min, nums[i]);
+                max = Math.max(max, nums[i]);
+//                如果移出的值为最小或者最大重新进行最大或者最小计算
+                if (min == tmp) {
                     min = Integer.MAX_VALUE;
-                    for (int j = i-k+1; j <= i; j++) {
-                        min = Math.min(min,nums[j]);
+                    for (int j = i - k + 1; j <= i; j++) {
+                        min = Math.min(min, nums[j]);
                     }
                 }
-                if(max == tmp){
+                if (max == tmp) {
                     max = Integer.MIN_VALUE;
-                    for (int j = i-k+1; j <= i; j++) {
-                        max = Math.max(max,nums[j]);
+                    for (int j = i - k + 1; j <= i; j++) {
+                        max = Math.max(max, nums[j]);
                     }
                 }
-                System.out.print(" "+(max-min));
+                System.out.print(" " + (max - min));
             }
             System.out.println();
         }

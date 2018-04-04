@@ -10,12 +10,14 @@ public class ShifenZhen {
             String[] strs = time.split(":");
             int hour = Integer.parseInt(strs[0]) % 12;
             int minute = Integer.parseInt(strs[1]);
+//            如果能够整除的话，输出整数
             if (minute * 30 % 60 == 0) {
                 int hourD = hour * 30 + minute * 30 / 60;
                 int minuteD = minute * 6;
                 int tmp = Math.abs(hourD - minuteD);
                 tmp = tmp > 180 ? 360 - tmp : tmp;
                 System.out.println(tmp);
+//                double类型计算
             } else {
                 double hourD = hour * 30 + minute * 30.0 / 60;
                 int minuteD = minute * 6;

@@ -1,4 +1,4 @@
-package com.julyerr.niuke.company.meituan;
+package com.julyerr.realInterview.exams.meituan;
 
 public class LongestSubstring {
     public int findLongest(String str1, int n, String str2, int m) {
