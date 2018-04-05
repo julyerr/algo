@@ -11,31 +11,31 @@ import java.util.Stack;
  */
 
 /**
- * using the first flag to show the Node is first in the stackQueue or not
+ * using the first flag to show the Task is first in the stackQueue or not
  */
 public class PostBST {
 
     //    递归形式
-//    public List<Integer> postorderTraversal(TreeNode Node) {
+//    public List<Integer> postorderTraversal(TreeNode Task) {
 //        List<Integer> rt = new ArrayList<>();
-//        if(Node == null){
+//        if(Task == null){
 //            return rt;
 //        }
-//        postorder(Node,rt);
+//        postorder(Task,rt);
 //        return rt;
 //    }
 //
-//    private void postorder(TreeNode Node,List<Integer> rt) {
-//        if (Node == null) {
+//    private void postorder(TreeNode Task,List<Integer> rt) {
+//        if (Task == null) {
 //            return;
 //        }
 //
 ////        递归left
-//        postorder(Node.left,rt);
+//        postorder(Task.left,rt);
 ////        递归right
-//        postorder(Node.right,rt);
+//        postorder(Task.right,rt);
 ////        添加元素
-//        rt.add(Node.val);
+//        rt.add(Task.val);
 //    }
 
 

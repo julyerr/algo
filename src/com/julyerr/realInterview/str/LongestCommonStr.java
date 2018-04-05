@@ -1,4 +1,4 @@
-package com.julyerr.niuke.company.meituan;
+package com.julyerr.realInterview.str;
 
 import java.util.Scanner;
 

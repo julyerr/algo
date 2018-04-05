@@ -12,7 +12,7 @@ public class InsertSort {
         ListNode cur = head;
         while (cur != null) {
             ListNode pre = newHead;
-            //reserve the cur next Node
+            //reserve the cur next Task
             ListNode next = cur.next;
             while (pre.next != null && pre.next.val <= cur.val) {
                 pre = pre.next;

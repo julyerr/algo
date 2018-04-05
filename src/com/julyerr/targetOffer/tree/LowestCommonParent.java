@@ -62,7 +62,7 @@ public class LowestCommonParent {
             node = BSTTree.insertRecurse(node, nodes[i]);
         }
         System.out.println("level traversal tree finished");
-//        TreeNode found = lowestCommonParent.lowestCommonParent(Node, nodes[4], nodes[5]);
+//        TreeNode found = lowestCommonParent.lowestCommonParent(Task, nodes[4], nodes[5]);
         TreeNode found = lowestCommonParent.lowestCommonParent(node, nodes[3], nodes[2]);
         if (found != null)
             System.out.println("found:" + found.data);

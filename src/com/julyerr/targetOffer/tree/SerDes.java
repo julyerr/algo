@@ -12,7 +12,7 @@ import java.util.Queue;
  * 显然利用前序遍历的方式进行，针对string逐个字符check
  * 为了方便构件左右节点，使用队列存储已经构建好的node
  * 自然想到了tree的serialize方式
- * Node,Node.left,Node.right
+ * Task,Task.left,Task.right
  */
 public class SerDes {
 

@@ -18,21 +18,21 @@ public class IsBalanced {
 //        return isBalanced(root);
 //    }
 //
-//    private boolean isBalanced(TreeNode Node) {
-//        if (Node == null) {
+//    private boolean isBalanced(TreeNode Task) {
+//        if (Task == null) {
 //            return true;
 //        }
-//        if (Math.abs(treeDepth(Node.left) - treeDepth(Node.right)) > 1) {
+//        if (Math.abs(treeDepth(Task.left) - treeDepth(Task.right)) > 1) {
 //            return false;
 //        }
-//        return isBalanced(Node.left) && isBalanced(Node.right);
+//        return isBalanced(Task.left) && isBalanced(Task.right);
 //    }
 //
-//    private int treeDepth(TreeNode Node) {
-//        if (Node == null) {
+//    private int treeDepth(TreeNode Task) {
+//        if (Task == null) {
 //            return 0;
 //        }
-//        return 1 + Math.max(treeDepth(Node.left), treeDepth(Node.right));
+//        return 1 + Math.max(treeDepth(Task.left), treeDepth(Task.right));
 //    }
 
     //    后序遍历的方式

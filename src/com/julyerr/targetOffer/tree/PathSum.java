@@ -25,7 +25,7 @@ public class PathSum {
     private void findPath(TreeNode node, int target, List<Integer> list) {
         target -= node.data;
         list.add(node.data);
-//        ensure the Node in the last layer
+//        ensure the Task in the last layer
         if (target == 0 && node.left == null && node.right == null) {
             rt.add(new ArrayList<>(list));
             return;

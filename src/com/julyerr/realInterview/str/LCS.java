@@ -1,4 +1,4 @@
-package com.julyerr.realInterview.dp;
+package com.julyerr.realInterview.str;
 
 public class LCS {
     public int findLCS(String A, int n, String B, int m) {
