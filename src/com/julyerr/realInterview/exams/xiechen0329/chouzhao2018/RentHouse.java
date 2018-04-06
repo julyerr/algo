@@ -2,6 +2,9 @@ package com.julyerr.realInterview.exams.xiechen0329.chouzhao2018;
 
 import java.util.Scanner;
 
+/*
+ * 思路还是正确的，使用类似leetcode上的CombinationSum的方法，只不过这里设置成一个num[]保存次数结果
+ * */
 public class RentHouse {
     private static int price = Integer.MAX_VALUE;
     private static int[] array;
@@ -22,15 +25,15 @@ public class RentHouse {
             int young = scanner.nextInt();
             int times = scanner.nextInt();
             int[] nums = new int[n];
-            dfs(houses,0,old,young,times,nums);
+            dfs(houses, 0, old, young, times, nums);
             for (int i = 0; i < n; i++) {
                 System.out.print(array[i] + ",");
             }
-            System.out.printf("%.1f\n",1.0*price);
+            System.out.printf("%.1f\n", 1.0 * price);
         }
     }
 
-    private static void dfs(House[] houses, int cur, int old, int young, int times,int[] nums) {
+    private static void dfs(House[] houses, int cur, int old, int young, int times, int[] nums) {
         if (old <= 0 && young <= 0) {
             int tmp = 0;
             for (int i = 0; i < nums.length; i++) {
@@ -48,7 +51,7 @@ public class RentHouse {
         }
         for (int i = cur; i < houses.length; i++) {
             nums[i]++;
-            dfs(houses, i, old - houses[i].old, young - houses[i].young, times,nums);
+            dfs(houses, i, old - houses[i].old, young - houses[i].young, times, nums);
             nums[i]--;
         }
     }
