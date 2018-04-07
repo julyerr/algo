@@ -24,6 +24,7 @@ public class ArraySeq {
         int left = nums[start];
         int right = nums[end];
         int times = 0;
+//        数组两端相等或者合并成同一个数
         while (start < end && left != right) {
             if (left < right) {
                 left += nums[++start];
