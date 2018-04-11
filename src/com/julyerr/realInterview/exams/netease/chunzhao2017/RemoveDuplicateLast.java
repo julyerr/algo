@@ -2,6 +2,9 @@ package com.julyerr.realInterview.exams.netease.chunzhao2017;
 
 import java.util.*;
 
+/*
+ * 此题需要考虑从后往前遍历，可以使用map结构，针对不存在的情况才进行添加
+ * */
 public class RemoveDuplicateLast {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

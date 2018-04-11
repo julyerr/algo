@@ -318,7 +318,10 @@ public class ListUdg {
 //        parent数组
         int num = vnodes.length;
         int[] parent = new int[num];
-//        保存最短路径
+        for (int i = 0; i < parent.length; i++) {
+            parent[i] = i;
+        }
+        //        保存最短路径
 
 //      每次添加一条新边，循环n-1次就行
         EData[] eData1 = new EData[num - 1];
@@ -368,7 +371,7 @@ public class ListUdg {
 
     //    获取parent
     private int getParent(int[] parent, int index) {
-        while (parent[index] != 0) {
+        while (parent[index] != index) {
             index = parent[index];
         }
         return index;
