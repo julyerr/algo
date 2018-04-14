@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 参考大神的解题思路：https://www.nowcoder.com/questionTerminal/fddf64d5757e41ec93f3ef0c0a10b891
  * 使用动态规划，dp[i][j]表示最近一次第一个人唱的是i，第二个人唱的是j
  * 不妨设置i>j:
- * 当j = i-1，说明发生了交换的情况，dp[i][j] = dp[i-1][k]+min(abs(nums[i]-nums[k])), 0<=k<i-1;
+ * 当j = i-1，说明发生了交换的情况，dp[i][j] = min(dp[i-1][k]，dp[i-1][k]+abs(nums[i]-nums[k])), 0<=k<i-1;
  * 当j<i-1，说明唱i字符的时候没有发生交换的情况,dp[i][j] = dp[i-1][j]+abs(nums[i]-nums[i-1])
  * */
 public class Chorus {

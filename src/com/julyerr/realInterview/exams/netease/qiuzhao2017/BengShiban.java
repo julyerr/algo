@@ -24,6 +24,7 @@ public class BengShiban {
                     for (int j = 2; j * j <= i; j++) {
 //                        有公共的因子
                         if (i % j == 0) {
+//                            两种情况都可能进行更新
                             if (i + j <= M) {
                                 dp[i + j] = Math.min(dp[i + j], dp[i] + 1);
                             }

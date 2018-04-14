@@ -28,10 +28,6 @@ public class TakeTaxi {
                     int a = Math.abs(x[i]);
                     int b = Math.abs(y[i]);
                     min = Math.min(min, wT * (a + b) + tT * (Math.abs(x[i] - gX) + Math.abs(y[i] - gY)));
-                    if(flag && min == 4889134){
-                        System.out.println(x[i]+" "+y[i]);
-                        flag = false;
-                    }
                 }
                 System.out.println(min);
             }
