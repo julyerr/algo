@@ -2,6 +2,11 @@ package com.julyerr.pat.levelone.partone;
 
 import java.util.*;
 
+//思路没有问题，关键是java运行超时
+/*
+ * 参考https://blog.csdn.net/redy_hello/article/details/75209766
+ * 使用红黑树存储提高效率,但是还是超时
+ * */
 public class Goodness {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -9,47 +14,44 @@ public class Goodness {
             int n = scanner.nextInt();
             int L = scanner.nextInt();
             int H = scanner.nextInt();
-            List<List<Node>> all = new ArrayList<>();
-            for (int i = 0; i < 4; i++) {
-                all.add(new ArrayList<>());
-            }
+            TreeSet<Node> treeSet = new TreeSet<>();
 
             int count = 0;
             for (int i = 0; i < n; i++) {
                 int id = scanner.nextInt();
                 int de = scanner.nextInt();
                 int cai = scanner.nextInt();
+                int type = 0;
                 if (de < L || cai < L) {
                     continue;
                 }
                 count++;
-                Node node = new Node(id, de, cai);
+//                分别添加到4中人才中去
                 if (de >= H && cai >= H) {
-                    all.get(0).add(node);
+                    type = 0;
                 } else if (de >= H) {
-                    all.get(1).add(node);
+                    type = 1;
                 } else if (de > cai) {
-                    all.get(2).add(node);
+                    type = 2;
                 } else {
-                    all.get(3).add(node);
+                    type = 3;
                 }
+                Node node = new Node(type, id, de, cai);
+                treeSet.add(node);
             }
             System.out.println(count);
-            for (int i = 0; i < 4; i++) {
-                List<Node> cur = all.get(i);
-                Collections.sort(cur);
-                for (int j = 0; j < cur.size(); j++) {
-                    Node node = cur.get(j);
-                    System.out.println(node.id + " " + node.de + " " + node.cai);
-                }
+            for (Node node :
+                    treeSet) {
+                System.out.println(node.id + " " + node.de + " " + node.cai);
             }
         }
     }
 
     private static class Node implements Comparable<Node> {
-        int id, de, cai;
+        int type, id, de, cai;
 
-        public Node(int id, int de, int cai) {
+        public Node(int type, int id, int de, int cai) {
+            this.type = type;
             this.id = id;
             this.de = de;
             this.cai = cai;
@@ -57,15 +59,22 @@ public class Goodness {
 
         @Override
         public int compareTo(Node o) {
-            int a = this.de + this.cai;
-            int b = o.de + o.cai;
-            if (a == b) {
-                if (this.de == o.de) {
-                    return this.id-o.id;
+//            按照类型升序排列
+            if (this.type == o.type) {
+                int a = this.de + this.cai;
+                int b = o.de + o.cai;
+                if (a == b) {
+                    if (this.de == o.de) {
+//                    总分相同、德育分相同，id升序
+                        return this.id - o.id;
+                    }
+//                总分相同，德育分降序
+                    return o.de - this.de;
                 }
-                return o.de - this.de;
+//            总分降序排序
+                return b - a;
             }
-            return b - a;
+            return this.type - o.type;
         }
     }
 }
