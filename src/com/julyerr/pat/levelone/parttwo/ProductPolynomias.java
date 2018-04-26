@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static com.julyerr.pat.levelone.parttwo.WorldCupBetting.round;
+
 /*
  * 此题有一个精度问题，这里就不细细深究了
  * */
@@ -50,7 +52,7 @@ public class ProductPolynomias {
             System.out.print(count);
             for (int i = maxe; i >= 0; i--) {
                 if (result[i] != null) {
-                    System.out.printf(" %d %.1f", result[i].xishu);
+                    System.out.printf(" %d %.1f", result[i].e, 1.0 * round(result[i].xishu * 10) / 10);
                 }
             }
             System.out.println();
