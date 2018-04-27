@@ -371,9 +371,9 @@ public class ListUdg {
 
     //    获取parent
     private int getParent(int[] parent, int index) {
-        while (parent[index] != index) {
-            index = parent[index];
+        if (parent[index] != index) {
+            parent[index] = getParent(parent, parent[index]);
         }
-        return index;
+        return parent[index];
     }
 }
