@@ -1,4 +1,4 @@
-package com.julyerr.leetcode.dynamic;
+package com.julyerr.leetcode.dynamic.sellstocks;
 
 import java.util.Arrays;
 
