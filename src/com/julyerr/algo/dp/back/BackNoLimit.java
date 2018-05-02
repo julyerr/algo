@@ -13,8 +13,9 @@ import java.util.Scanner;
 * */
 
 /*
-* 整个过程和01非常相似，01表示反序迭代，完全背包正序迭代
-* */
+ * 整个过程和01非常相似，01表示反序迭代，完全背包正序迭代
+ * 贪心原则
+ * */
 
 public class BackNoLimit {
     public static void main(String[] args) {
