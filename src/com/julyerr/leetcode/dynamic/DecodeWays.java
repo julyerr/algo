@@ -17,6 +17,7 @@ package com.julyerr.leetcode.dynamic;
  */
 //注意非零的情况之下只能保存前述结果，不能增加
 public class DecodeWays {
+
     public int decodingWays(String s) {
         int length = s.length();
         if (length == 0 || s.charAt(0) == '0') {
