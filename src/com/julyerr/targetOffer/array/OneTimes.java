@@ -20,7 +20,6 @@ public class OneTimes {
         int count = 1;
         while (n > base) {
             int tmp = n / base % 10;
-            System.out.println("tmp:" + tmp);
             if (tmp == 1) {
                 count += delta + n % base + 1;
             } else if (tmp > 0) {

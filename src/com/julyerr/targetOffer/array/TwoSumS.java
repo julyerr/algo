@@ -42,7 +42,6 @@ public class TwoSumS {
                         rt.add(array[right]);
                     }
                 }
-
                 left++;
                 right--;
             } else {

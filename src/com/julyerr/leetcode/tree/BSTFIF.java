@@ -26,5 +26,4 @@ public class BSTFIF {
         newNode.right = constructBT(pre, preStart+(i-inStart)+1, preEnd, in, i + 1, inEnd);
         return newNode;
     }
-
 }

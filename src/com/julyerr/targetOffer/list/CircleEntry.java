@@ -35,7 +35,7 @@ public class CircleEntry {
         if (pHead == null || pHead.next == null) {
             return null;
         }
-        ListNode previous = null;
+        ListNode previous = pHead;
         ListNode front = pHead.next;
         while (front != null) {
             previous.next = null;

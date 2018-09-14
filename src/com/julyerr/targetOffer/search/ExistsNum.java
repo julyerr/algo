@@ -9,6 +9,7 @@ package com.julyerr.targetOffer.search;
  * 自己使用的是二分法查找，效率log，如果矩阵比较大的话
  */
 
+//需要确保，每一行的最后一个元素大于下一行的第一个元素
 public class ExistsNum {
     public boolean isExists(int[][] nums, int elem) {
 //        check validation
@@ -67,7 +68,7 @@ public class ExistsNum {
         int[][] nums = new int[][]{
 //                {1, 2, 3, 4},
 //                {5, 6, 7, 9}
-                {1,3}
+                {1, 3}
         };
         ExistsNum existsNum = new ExistsNum();
 //        System.out.println(existsNum.isExists(nums, 2));

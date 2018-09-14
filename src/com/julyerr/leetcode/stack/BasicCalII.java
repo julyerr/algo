@@ -9,7 +9,6 @@ public class BasicCalII {
             return 0;
         }
 
-
         int length = s.length();
 //        使用一个stack的时候，需要将符号表示为数字存储
         Stack<Integer> stack = new Stack<>();

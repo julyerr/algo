@@ -18,5 +18,4 @@ public class Hanoi {
         Hanoi hanoi = new Hanoi();
         hanoi.hanoi(3, 1, 2, 3);
     }
-
 }

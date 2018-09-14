@@ -1,8 +1,8 @@
 package com.julyerr.targetOffer.list;
 
 public class ListNode {
-    Integer data;
-    ListNode next;
+    public Integer data;
+    public ListNode next;
 
     public ListNode(Integer data) {
         this.data = data;
