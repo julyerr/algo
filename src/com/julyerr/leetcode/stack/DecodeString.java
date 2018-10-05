@@ -3,7 +3,7 @@ package com.julyerr.leetcode.stack;
 import java.util.Stack;
 
 /*
-* 解题思路：http://www.cnblogs.com/grandyang/p/5849037.html
+* 解题思路：7http://www.cnblogs.com/grandyang/p/5849037.html
 * 符号栈和数字栈
 * */
 public class DecodeString {
